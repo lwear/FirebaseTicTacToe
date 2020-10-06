@@ -4,11 +4,12 @@ let numTurns = 0;
 let idNames = ["one", "two", "three", "four", "five", "six",
                  "seven", "eight", "nine"];
 
-const idGrid = [0, 0, 0, 0, 0, 0, 0, 0, 0]; 
+
+const idGrid = [0, 0, 0, 0, 0, 0, 0, 0, 0]; // empty grid to set to default stage of game. 
                  
 let playerLastClicked = "";
 
-let playerNumber = "0"; 
+let playerNumber = "0"; // this will be player 1 or player 2, depending who opened the website first. 
 
 // Your web app's Firebase configuration
 var firebaseConfig = {
@@ -23,39 +24,47 @@ var firebaseConfig = {
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 
+// players online references to the database (inside p1, and p2)
 const Player1DB = firebase.database().ref('p1'); 
 const Player2DB = firebase.database().ref('p2');
-
+// players grid position (array) inside p1Grid and p2Grid
 const Player1GridDB = firebase.database().ref('p1Grid'); 
 const Player2GridDB = firebase.database().ref('p2Grid');
 
-
+// anonymous function which runs when the window is closed
 window.onunload = function () {
+  // if player 1 is in the browser that just close, set online to 0 in the database (0 = false)
   if (playerNumber == 1) {
     Player1DB.set({online : 0}); 
     
-  } else if (playerNumber == 2) {
+  } 
+  // if player 2 is in the browser that just close, set online to 0 in the database (0 = false)
+  else if (playerNumber == 2) {
     Player2DB.set({online : 0}); 
   }
-  playerNumber = 0; 
-  console.log("User: " + playerNumber);
-}
+} // onunload function
 
+// sends new player move to appropriate DB
 function sendMove(str) {
   
 }
 
+// sets up the users activity and player number
 function setUser() {
   const status = document.getElementById("gameStatus"); 
+  // checks ONCE to see if p1's "online" status is 0 or 1
   Player1DB.once("value", function(data) {
     const newData = data.val();
-    
+    // if p1 is 0 (offline) then make them online, set their grid to all 0 and change html status
     if (newData.online == 0) {
       playerNumber = 1;
       Player1DB.set({online : 1}); 
       Player1GridDB.set({grid : idGrid}); 
       status.innerHTML = "Hello Player 1, we're just waiting for player 2"; 
-    } else if (newData.online == 1) {
+    } 
+    // if p1 is 1 (online) then it means this will be player 2 so set player 2 to be online
+    // set their grid to all 0 and change html status
+    else if (newData.online == 1) {
       playerNumber = 2;
       Player2DB.set({online : 1}); 
       Player2GridDB.set({grid : idGrid}); 
@@ -64,16 +73,23 @@ function setUser() {
     console.log("User #: " + playerNumber);
   }); 
 
+  // Asynchronous  monitoring for changes in the "online" data. These functions will AUTOMATICALLY run on changes to the data. 
+  // If a second player joins, it will change both status messages, and if a player leaves, it will change the status
+  // for the remaining player
   Player2DB.on("value", function(data) {
     const newData = data.val();
+    // if player 2 is online, then both are here
     if (newData.online == 1) {
       status.innerHTML = "Hello Player 1, both players are here!";  
-    } else {
+    } 
+    // if not, player 1 is waiting for player 2
+    else {
       status.innerHTML = "Hello Player 1, we're just waiting for player 2"; 
     }
   });
   Player1DB.on("value", function(data) {
     const newData = data.val();
+    // if player 1 is NOT online, then player 2 is waiting for player 1
     if (newData.online == 0) {
       status.innerHTML = "Hello Player 2, we're just waiting for player 1";  
     }
@@ -92,6 +108,7 @@ function newGame() {
   gameStatus = "";
   currentPlayer = "X";
   
+  // runs all init funcitons
   setUser(); 
   changeVisibility("controls");
   
