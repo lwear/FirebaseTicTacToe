@@ -10,6 +10,7 @@ let idGrid = ["", "", "", "", "", "", "", "", ""]; // empty grid to set to defau
 
 let playerNumber = 0; // this will be player 1 or player 2, depending who opened the website first.
 let playerTurn = 0;
+let bothPlayers = false;
 
 // Your web app's Firebase configuration
 var firebaseConfig = {
@@ -69,7 +70,8 @@ function setUser() {
       grid = p1Grid;
       otherGrid = p2Grid;  
       currentPlayer = "X"; 
-      status.innerHTML = "Hello Player 'X', we're just waiting for player 'O'"; 
+      status.innerHTML = "Hello Player 'X', we're just waiting for player 'O'";
+      bothPlayers = false;  
     } 
     // if p1 is 1 (online) then it means this will be player 2 so set player 2 to be online
     // set their grid to all 0 and change html status
@@ -80,7 +82,8 @@ function setUser() {
       grid = p2Grid; 
       otherGrid = p1Grid; 
       currentPlayer = "O"; 
-      status.innerHTML = "Hello Player 'O', wait for 'X' to make a move";  
+      status.innerHTML = "Hello Player 'O', wait for 'X' to make a move";
+      bothPlayers = true;   
     }
     grid.set(idGrid); 
     turn.set(1); 
@@ -95,18 +98,21 @@ function setUser() {
     const newData = data.val();
     // if player 2 is online, then both are here
     if (newData.online == 1) {
-      status.innerHTML = "Hello Player 'X', please make your move";  
+      status.innerHTML = "Hello Player 'X', please make your move";
+      bothPlayers = true;   
     } 
     // if not, player 1 is waiting for player 2
     else {
       status.innerHTML = "Hello Player 'X', we're just waiting for player 'O'"; 
+      bothPlayers = false; 
     }
   });
   Player1DB.on("value", function(data) {
     const newData = data.val();
     // if player 1 is NOT online, then player 2 is waiting for player 1
     if (newData.online == 0) {
-      status.innerHTML = "Hello Player 'O', we're just waiting for player 'X'";  
+      status.innerHTML = "Hello Player 'O', we're just waiting for player 'X'";
+      bothPlayers = false;   
     }
   });
 } // setUser
@@ -128,38 +134,34 @@ function newGame() {
 
 // take player turn
 function playerTakeTurn(e) {
-  turn.once("value", function(data) {
-    const newData = data.val(); 
-    if (newData == playerNumber) {
-      if (e.innerHTML == "") {
-        e.innerHTML = currentPlayer;
-        //pushes data to local array
-        idGrid[toNumber(e.id)-1] = currentPlayer; 
-        
-        // pushes data to firebase
-        grid.update(idGrid);
-        turn.set(playerTurn);
-        console.log("e id " + e.id);
-        checkGameStatus(); 
-        
-        // if game not over, computer goes
-        if (gameStatus == "") {
-          setTimeout(function() {
-  
-              checkGameStatus(); 
-            }, 500
-          );
-        } // if
-        
-        
+  if (bothPlayers == true) {
+    const status = document.getElementById("gameStatus"); 
+    status.innerHTML = "You are " + currentPlayer; 
+    turn.once("value", function(data) {
+      const newData = data.val(); 
+      if (newData == playerNumber) {
+        if (e.innerHTML == "") {
+          e.innerHTML = currentPlayer;
+          //pushes data to local array
+          idGrid[toNumber(e.id)-1] = currentPlayer; 
+          
+          // pushes data to firebase
+          grid.update(idGrid);
+          turn.set(playerTurn);
+          console.log("e id " + e.id);
+          checkGameStatus(); 
+ 
+        } else {
+          showLightBox("This box is already selected.", "Please try another.");
+          return;
+        } // else
       } else {
-        showLightBox("This box is already selected.", "Please try another.");
-        return;
-      } // else
-    } else {
-      showLightBox("It's not your turn, wait for opponent to move"); 
-    } // if/else who's turn it is
-  }); 
+        showLightBox("It's not your turn, wait for opponent to move"); 
+      } // if/else who's turn it is
+    }); 
+  } else {
+    showLightBox("You need another player!");
+  }
 } // playerTakeTurn
 
 function updateGrid() {
@@ -182,6 +184,7 @@ function updateGrid() {
 // after each turn, check for a winner, a tie,
 // or continue playing
 function checkGameStatus(){
+  
   numTurns++;  // count turn
   
   // check for a win
@@ -209,6 +212,7 @@ function checkGameStatus(){
 
 // check for a Win, there 8 win paths
 function checkWin() {
+  
   let cb = []; // current board
   cb[0] = ""; // not goint to use
   cb[1] = document.getElementById("one").innerHTML;
@@ -225,7 +229,27 @@ function checkWin() {
   
   // top row
   if (cb[1] != "" && cb[1] == cb[2] && cb[2] == cb[3]) {
-    console.log("returning true");
+    showLightBox("Contrats! You Won!"); 
+    return true;
+  }
+  if (cb[4] != "" && cb[4] == cb[5] && cb[5] == cb[6]) {
+    showLightBox("Contrats! You Won!"); 
+    return true;
+  }
+  if (cb[7] != "" && cb[7] == cb[8] && cb[8] == cb[9]) {
+    showLightBox("Contrats! You Won!"); 
+    return true;
+  }
+  if (cb[1] != "" && cb[1] == cb[4] && cb[4] == cb[7]) {
+    showLightBox("Contrats! You Won!"); 
+    return true;
+  }
+  if (cb[2] != "" && cb[2] == cb[5] && cb[5] == cb[8]) {
+    showLightBox("Contrats! You Won!"); 
+    return true;
+  }
+  if (cb[3] != "" && cb[3] == cb[6] && cb[6] == cb[9]) {
+    showLightBox("Contrats! You Won!"); 
     return true;
   }
   
