@@ -68,6 +68,7 @@ function playerTakeTurn(e) {
     if (gameStatus == "") {
       setTimeout(function() {
           sendMove(e.id); 
+          
           waitForOpponent();
           checkGameStatus(); 
         }, 500
