@@ -70,7 +70,7 @@ function setUser() {
       grid = p1Grid;
       otherGrid = p2Grid;  
       currentPlayer = "X"; 
-      status.innerHTML = "Hello Player 'X', we're just waiting for player 'O'";
+      status.innerHTML = "Waiting for second player to join";
       bothPlayers = false;  
     } 
     // if p1 is 1 (online) then it means this will be player 2 so set player 2 to be online
@@ -82,7 +82,7 @@ function setUser() {
       grid = p2Grid; 
       otherGrid = p1Grid; 
       currentPlayer = "O"; 
-      status.innerHTML = "Hello Player 'O', wait for 'X' to make a move";
+      status.innerHTML = "Waiting for opponent to move";
       bothPlayers = true;   
     }
     grid.set(idGrid); 
@@ -98,12 +98,12 @@ function setUser() {
     const newData = data.val();
     // if player 2 is online, then both are here
     if (newData.online == 1) {
-      status.innerHTML = "Hello Player 'X', please make your move";
+      status.innerHTML = "Your turn";
       bothPlayers = true;   
     } 
     // if not, player 1 is waiting for player 2
     else {
-      status.innerHTML = "Hello Player 'X', we're just waiting for player 'O'"; 
+      status.innerHTML = "Waiting for second player to join"; 
       bothPlayers = false; 
     }
   });
@@ -111,7 +111,7 @@ function setUser() {
     const newData = data.val();
     // if player 1 is NOT online, then player 2 is waiting for player 1
     if (newData.online == 0) {
-      status.innerHTML = "Hello Player 'O', we're just waiting for player 'X'";
+      status.innerHTML = "Waiting for second player to join";
       bothPlayers = false;   
     }
   });
