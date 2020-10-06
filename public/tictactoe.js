@@ -3,8 +3,12 @@ let gameStatus = ""; // "" - continue game, "Tie Game", "X Wins", "O Wins"
 let numTurns = 0;
 let idNames = ["one", "two", "three", "four", "five", "six",
                  "seven", "eight", "nine"];
+
+const idGrid = [0, 0, 0, 0, 0, 0, 0, 0, 0]; 
                  
 let playerLastClicked = "";
+
+let playerNumber = "0"; 
 
 // Your web app's Firebase configuration
 var firebaseConfig = {
@@ -19,13 +23,54 @@ var firebaseConfig = {
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 
+const Player1DB = firebase.database().ref('p1'); 
+const Player2DB = firebase.database().ref('p2');
 
-sendMove(); 
-receiveMove(); 
-function sendMove(gridSpace) {
-    const databaseRefSend = firebase.database().ref('xMove'); 
-    databaseRefSend.set({gridMove : gridSpace});
+const Player1GridDB = firebase.database().ref('p1Grid'); 
+const Player2GridDB = firebase.database().ref('p2Grid');
+
+
+window.onunload = function () {
+  if (playerNumber == 1) {
+    Player1DB.set({online : 0}); 
+    
+  } else if (playerNumber == 2) {
+    Player2DB.set({online : 0}); 
+  }
+  playerNumber = 0; 
+  console.log("User: " + playerNumber);
 }
+
+function sendMove(str) {
+  
+}
+
+function setUser() {
+  const status = document.getElementById("gameStatus"); 
+  Player1DB.once("value", function(data) {
+    const newData = data.val();
+    
+    if (newData.online == 0) {
+      playerNumber = 1;
+      Player1DB.set({online : 1}); 
+      Player1GridDB.set({grid : idGrid}); 
+      status.innerHTML = "Hello Player 1, we're just waiting for player 2"; 
+    } else if (newData.online == 1) {
+      playerNumber = 2;
+      Player2DB.set({online : 1}); 
+      Player2GridDB.set({grid : idGrid}); 
+      status.innerHTML = "Hello Player 2, both players are here!";  
+    }
+    console.log("User #: " + playerNumber);
+  }); 
+
+  Player2DB.on("value", function(data) {
+    const newData = data.val();
+    if (newData.online == 1) {
+      status.innerHTML = "Hello Player 1, both players are here!";  
+    } 
+  });
+} // setUser
 
 // reset board and all variables
 function newGame() {
@@ -39,20 +84,14 @@ function newGame() {
   gameStatus = "";
   currentPlayer = "X";
   
+  setUser(); 
   changeVisibility("controls");
   
 } // newGame
 
 
 function waitForOpponent() {
-  const databaseRefReceive = firebase.database().ref('oMove'); 
-  databaseRefReceive.on("value", function(data) {
-      const newData = data.val();
-      console.log("O Move: " + newData.gridMove);
 
-      let idName = newData.gridMove; 
-      document.getElementById(idName).innerHTML = currentPlayer;
-  }); 
 }
 
 // take player turn
