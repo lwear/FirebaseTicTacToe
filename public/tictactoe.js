@@ -5,11 +5,11 @@ let idNames = ["one", "two", "three", "four", "five", "six",
                  "seven", "eight", "nine"];
 
 
-const idGrid = [0, 0, 0, 0, 0, 0, 0, 0, 0]; // empty grid to set to default stage of game. 
-                 
-let playerLastClicked = "";
+let idGrid = ["", "", "", "", "", "", "", "", ""]; // empty grid to set to default stage of game. 
+                
 
-let playerNumber = "0"; // this will be player 1 or player 2, depending who opened the website first. 
+let playerNumber = 0; // this will be player 1 or player 2, depending who opened the website first.
+let playerTurn = 0;
 
 // Your web app's Firebase configuration
 var firebaseConfig = {
@@ -28,8 +28,14 @@ firebase.initializeApp(firebaseConfig);
 const Player1DB = firebase.database().ref('p1'); 
 const Player2DB = firebase.database().ref('p2');
 // players grid position (array) inside p1Grid and p2Grid
-const Player1GridDB = firebase.database().ref('p1Grid'); 
-const Player2GridDB = firebase.database().ref('p2Grid');
+const p1Grid = firebase.database().ref('p1Grid'); 
+const p2Grid = firebase.database().ref('p2Grid'); 
+
+let grid;
+let otherGrid;  
+
+const turn = firebase.database().ref('turn'); 
+
 
 // anonymous function which runs when the window is closed
 window.onunload = function () {
@@ -58,19 +64,28 @@ function setUser() {
     // if p1 is 0 (offline) then make them online, set their grid to all 0 and change html status
     if (newData.online == 0) {
       playerNumber = 1;
-      Player1DB.set({online : 1}); 
-      Player1GridDB.set({grid : idGrid}); 
-      status.innerHTML = "Hello Player 1, we're just waiting for player 2"; 
+      playerTurn = 2; 
+      Player1DB.set({online : 1});
+      grid = p1Grid;
+      otherGrid = p2Grid;  
+      currentPlayer = "X"; 
+      status.innerHTML = "Hello Player 'X', we're just waiting for player 'O'"; 
     } 
     // if p1 is 1 (online) then it means this will be player 2 so set player 2 to be online
     // set their grid to all 0 and change html status
     else if (newData.online == 1) {
       playerNumber = 2;
-      Player2DB.set({online : 1}); 
-      Player2GridDB.set({grid : idGrid}); 
-      status.innerHTML = "Hello Player 2, both players are here!";  
+      playerTurn = 1; 
+      Player2DB.set({online : 1});
+      grid = p2Grid; 
+      otherGrid = p1Grid; 
+      currentPlayer = "O"; 
+      status.innerHTML = "Hello Player 'O', wait for 'X' to make a move";  
     }
+    grid.set(idGrid); 
+    turn.set(1); 
     console.log("User #: " + playerNumber);
+    updateGrid(); 
   }); 
 
   // Asynchronous  monitoring for changes in the "online" data. These functions will AUTOMATICALLY run on changes to the data. 
@@ -80,18 +95,18 @@ function setUser() {
     const newData = data.val();
     // if player 2 is online, then both are here
     if (newData.online == 1) {
-      status.innerHTML = "Hello Player 1, both players are here!";  
+      status.innerHTML = "Hello Player 'X', please make your move";  
     } 
     // if not, player 1 is waiting for player 2
     else {
-      status.innerHTML = "Hello Player 1, we're just waiting for player 2"; 
+      status.innerHTML = "Hello Player 'X', we're just waiting for player 'O'"; 
     }
   });
   Player1DB.on("value", function(data) {
     const newData = data.val();
     // if player 1 is NOT online, then player 2 is waiting for player 1
     if (newData.online == 0) {
-      status.innerHTML = "Hello Player 2, we're just waiting for player 1";  
+      status.innerHTML = "Hello Player 'O', we're just waiting for player 'X'";  
     }
   });
 } // setUser
@@ -103,52 +118,66 @@ function newGame() {
   for (var i = 0; i < idNames.length; i++){
      document.getElementById(idNames[i]).innerHTML = "";   
   } // for
-  
   numTurns = 0;
   gameStatus = "";
-  currentPlayer = "X";
   
   // runs all init funcitons
   setUser(); 
-  changeVisibility("controls");
-  
+  //changeVisibility("controls");
 } // newGame
-
-
-function waitForOpponent() {
-
-}
 
 // take player turn
 function playerTakeTurn(e) {
+  turn.once("value", function(data) {
+    const newData = data.val(); 
+    if (newData == playerNumber) {
+      if (e.innerHTML == "") {
+        e.innerHTML = currentPlayer;
+        //pushes data to local array
+        idGrid[toNumber(e.id)-1] = currentPlayer; 
+        
+        // pushes data to firebase
+        grid.update(idGrid);
+        turn.set(playerTurn);
+        console.log("e id " + e.id);
+        checkGameStatus(); 
+        
+        // if game not over, computer goes
+        if (gameStatus == "") {
+          setTimeout(function() {
   
-  if (e.innerHTML == "") {
-    e.innerHTML = currentPlayer;
-    playerLastClicked = e.id;
-    console.log("e id " + e.id);
-    checkGameStatus(); 
-    
-    // if game not over, computer goes
-    if (gameStatus == "") {
-      setTimeout(function() {
-          sendMove(e.id); 
-          
-          waitForOpponent();
-          checkGameStatus(); 
-        }, 500
-      );
-    } // if
-    
-    
-  } else {
-    showLightBox("This box is already selected.", "Please try another.");
-    return;
-  } // else
-
-   
-    
+              checkGameStatus(); 
+            }, 500
+          );
+        } // if
+        
+        
+      } else {
+        showLightBox("This box is already selected.", "Please try another.");
+        return;
+      } // else
+    } else {
+      showLightBox("It's not your turn, wait for opponent to move"); 
+    } // if/else who's turn it is
+  }); 
 } // playerTakeTurn
 
+function updateGrid() {
+  let e;
+  otherGrid.on("value", function(Gdata) {
+    const GnewData = Gdata.val(); 
+    console.log("grid once");
+    for (let i = 0; i<GnewData.length; i++) {
+      e = document.getElementById(toString(i)); 
+      console.log("grid on: " + GnewData[i]);
+      if (GnewData[i] == "X") {
+        e.innerHTML = "X";
+      } else if (GnewData[i] == "O") {
+        e.innerHTML = "O";
+      } 
+    } // for
+  });
+}
 
 // after each turn, check for a winner, a tie,
 // or continue playing
@@ -169,7 +198,7 @@ function checkGameStatus(){
   } // if
   
   // switch current player
-  currentPlayer = (currentPlayer == "X" ? "O" : "X" );
+  //currentPlayer = (currentPlayer == "X" ? "O" : "X" );
   
   // game is over  
   if (gameStatus != "") {
@@ -235,6 +264,41 @@ function continueGame() {
     changeVisibility("controls");
   }
 } // continueGame
+
+function toNumber(str) {
+  let number = 0; 
+  switch (str) {
+    case "one": number = 1; break;
+    case "two": number = 2; break; 
+    case "three": number = 3; break; 
+    case "four": number = 4; break; 
+    case "five": number = 5; break; 
+    case "six": number = 6; break; 
+    case "seven": number = 7; break; 
+    case "eight": number = 8; break; 
+    case "nine": number = 9; break;  
+  }
+  return number; 
+}
+
+function toString(number) {
+  let str = ""; 
+  switch (number) {
+    case 0: str = "one"; break;
+    case 1: str = "two"; break;
+    case 2: str = "three"; break;
+    case 3: str = "four"; break;
+    case 4: str = "five"; break;
+    case 5: str = "six"; break;
+    case 6: str = "seven"; break;
+    case 7: str = "eight"; break;
+    case 8: str = "nine"; break;
+     
+  }
+  return str; 
+}
+
+
 
 
 
