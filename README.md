@@ -3,6 +3,8 @@
 
 #### The most recent demo version will always be avalible here: <https://tictactoe-2cc0f.web.app/>
 
+#### If you are really stuck, you can look at the source code for the most recent version, but Mrs. Wear will check if you just copy and pasted...👀 so don't. 
+
 This project will be broken down into different stages, and I will post source code, and live demo for the next stage up here as soon as I have it functional. 
 
 TASK 1 🐳 : Your task, should you choose to accept, is to start a *firebase* project with the [Firebase Command Line Interface](https://firebase.google.com/docs/cli)
@@ -34,7 +36,7 @@ online.
   1. Take a look at the demo site to see how this will work. Duplicate the site and see what happens to the sub-header text. Now close tab and see what happens. READ the firebase
   docs for reading and writing here: <https://firebase.google.com/docs/database/web/read-and-write> 
   2. You will need to manually setup the children for your database by going to the *realtime database* on the firebase console and clicking *add children* and pick a name
-  (player 1, and player 2?) with a default value of 0. This is what my database structure looks like at the current stage ( 
+  (player 1, and player 2?) with a default value of 0. This is what my database structure looks like at the current stage ![image](https://github.com/MatthewHightech/firebase-tic-tac-toe/blob/master/public/dbStructure.PNG) With a 1 if the user is online, and a 0 if the user is offline. 
   3. For anything to work, you will need to replace the code in `your_project_folder/database.rules.json
   ``` 
   {
