@@ -1,13 +1,17 @@
-[debug] [2020-10-06T01:24:31.887Z] ----------------------------------------------------------------------
-[debug] [2020-10-06T01:24:31.890Z] Command:       C:\laragon\bin\nodejs\node-v12\node.exe C:\laragon\bin\nodejs\node-v12\node_modules\firebase-tools\lib\bin\firebase.js serve
-[debug] [2020-10-06T01:24:31.890Z] CLI Version:   8.10.0
-[debug] [2020-10-06T01:24:31.890Z] Platform:      win32
-[debug] [2020-10-06T01:24:31.890Z] Node Version:  v12.5.0
-[debug] [2020-10-06T01:24:31.892Z] Time:          Mon Oct 05 2020 18:24:31 GMT-0700 (Pacific Daylight Time)
-[debug] [2020-10-06T01:24:31.892Z] ----------------------------------------------------------------------
-[debug] [2020-10-06T01:24:31.893Z] 
-[debug] [2020-10-06T01:24:31.902Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
-[debug] [2020-10-06T01:24:31.904Z] > authorizing via signed-in user
-[debug] [2020-10-06T01:24:31.904Z] [iam] checking project tictactoe-2cc0f for permissions ["firebase.projects.get"]
-[debug] [2020-10-06T01:24:31.909Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/tictactoe-2cc0f:testIamPermissions  
+[debug] [2020-10-06T03:13:32.996Z] ----------------------------------------------------------------------
+[debug] [2020-10-06T03:13:32.998Z] Command:       C:\laragon\bin\nodejs\node-v12\node.exe C:\laragon\bin\nodejs\node-v12\node_modules\firebase-tools\lib\bin\firebase.js serve
+[debug] [2020-10-06T03:13:32.998Z] CLI Version:   8.10.0
+[debug] [2020-10-06T03:13:32.998Z] Platform:      win32
+[debug] [2020-10-06T03:13:32.998Z] Node Version:  v12.5.0
+[debug] [2020-10-06T03:13:33.001Z] Time:          Mon Oct 05 2020 20:13:32 GMT-0700 (Pacific Daylight Time)
+[debug] [2020-10-06T03:13:33.001Z] ----------------------------------------------------------------------
+[debug] [2020-10-06T03:13:33.001Z] 
+[debug] [2020-10-06T03:13:33.012Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2020-10-06T03:13:33.012Z] > authorizing via signed-in user
+[debug] [2020-10-06T03:13:33.013Z] [iam] checking project tictactoe-2cc0f for permissions ["firebase.projects.get"]
+[debug] [2020-10-06T03:13:33.016Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2020-10-06T03:13:33.016Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2020-10-06T03:13:33.270Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=utf-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Tue, 06 Oct 2020 03:13:33 GMT","server":"scaffolding on HTTPServer2","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-Q050=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-27=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-T050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2020-10-06T03:13:33.290Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/tictactoe-2cc0f:testIamPermissions  
  {"permissions":["firebase.projects.get"]}

@@ -68,7 +68,15 @@ function setUser() {
     const newData = data.val();
     if (newData.online == 1) {
       status.innerHTML = "Hello Player 1, both players are here!";  
-    } 
+    } else {
+      status.innerHTML = "Hello Player 1, we're just waiting for player 2"; 
+    }
+  });
+  Player1DB.on("value", function(data) {
+    const newData = data.val();
+    if (newData.online == 0) {
+      status.innerHTML = "Hello Player 2, we're just waiting for player 1";  
+    }
   });
 } // setUser
 
