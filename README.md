@@ -3,6 +3,7 @@
 
 #### The most recent demo version will always be avalible here: <https://tictactoe-2cc0f.web.app/> To USE the demo, open it twice, in two different tabs. 
 
+#### If you have any questions, issues, or concerns about the code, please create an issue [HERE](https://github.com/MatthewHightech/firebase-tic-tac-toe/issues/new) and I will try and get back to you ASAP :) 
 #### If you are really stuck, you can look at the source code for the most recent version, but Mrs. Wear will check if you just copy and pasted...👀 so don't. 
 
 This project will be broken down into different stages, and I will post source code, and live demo for the next stage up here as soon as I have it functional. 
@@ -17,8 +18,9 @@ and host it on a local server
   to select them for your project. Next select `use existing project` and choose the project you just created. Finish the setup with default answers and yes. 
   6. Now run `firebase serve` This will run your local server. You will need to do this every time you want to view your project. 
   
-TASK 2 🐤 : Now that your local server is running, it's time to get things going! Now we're going to replace the default code with the *tic-tac-toe* codebase Mrs. Wear will give
-you. 
+TASK 2 🐤 : Now that your local server is running, it's time to get things going! Now we're going to replace the default code with the *tic-tac-toe* codebase Mrs. Wear will give you. 
+
+*NOTE: A firebase project will only run code in the `project_name/public/` folder. If you would like to change the name, open `project_name/firebase.json` and change the value of the `hosting { public: "public" }` to the name of the folder with your code in it.*
   1. First delete `public/index.html` in your project folder
   2. Now in `public/` copy the index.html, tictactoe.js, tictactoe.css, and x.png
   3. In the head of index.html you'll need to add the firebase library, and database library with these links 
