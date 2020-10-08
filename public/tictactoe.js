@@ -41,7 +41,7 @@ const turn = firebase.database().ref('turn');
 
 Player1DB.once("value", function(data) {
     if (data.val() == 0) {
-      Player1DB.set({online: 0});
+      Player1DB.set({online: 1});
       Player2DB.set({online: 0});
     }
 }); 
