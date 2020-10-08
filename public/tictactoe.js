@@ -30,7 +30,9 @@ const Player1DB = firebase.database().ref('p1');
 const Player2DB = firebase.database().ref('p2');
 // players grid position (array) inside p1Grid and p2Grid
 const p1Grid = firebase.database().ref('p1Grid'); 
-const p2Grid = firebase.database().ref('p2Grid'); 
+const p2Grid = firebase.database().ref('p2Grid');
+
+const winner = firebase.database().ref('winner');
 
 let grid;
 let otherGrid;  
@@ -87,8 +89,10 @@ function setUser() {
     }
     grid.set(idGrid); 
     turn.set(1); 
+    winner.set(0);
     console.log("User #: " + playerNumber);
     updateGrid(); 
+    wonGame(); 
   }); 
 
   // Asynchronous  monitoring for changes in the "online" data. These functions will AUTOMATICALLY run on changes to the data. 
@@ -127,6 +131,8 @@ function newGame() {
   numTurns = 0;
   gameStatus = "";
   
+  p1Grid.set(idGrid);
+  p2Grid.set(idGrid); 
   // runs all init funcitons
   setUser(); 
   //changeVisibility("controls");
@@ -152,7 +158,7 @@ function playerTakeTurn(e) {
           checkGameStatus(); 
  
         } else {
-          showLightBox("This box is already selected.", "Please try another.");
+          showLightBox("This box is already selected. Please try another.");
           return;
         } // else
       } else {
@@ -168,18 +174,26 @@ function updateGrid() {
   let e;
   otherGrid.on("value", function(Gdata) {
     const GnewData = Gdata.val(); 
-    console.log("grid once");
+    // iterates through each elmnt of database grid and prints each corrisponsding letter to local grid
     for (let i = 0; i<GnewData.length; i++) {
       e = document.getElementById(toString(i)); 
-      console.log("grid on: " + GnewData[i]);
       if (GnewData[i] == "X") {
         e.innerHTML = "X";
       } else if (GnewData[i] == "O") {
         e.innerHTML = "O";
-      } 
+      } // if/else
     } // for
   });
-}
+} // updateGrid
+
+function wonGame() {
+  winner.on("value", function(data) {
+    const newData = data.val();
+    if (newData == playerTurn) {
+      showLightBox("Uh Oh...You Lost!");
+    }
+  });
+} // won game
 
 // after each turn, check for a winner, a tie,
 // or continue playing
@@ -189,7 +203,7 @@ function checkGameStatus(){
   
   // check for a win
   if (checkWin()) {
-    gameStatus = currentPlayer + " wins!";
+    gameStatus = currentPlayer + " wins! Game Over.";
     return;
   }
   
@@ -205,7 +219,7 @@ function checkGameStatus(){
   
   // game is over  
   if (gameStatus != "") {
-    setTimeout(function() {showLightBox(gameStatus, "Game Over.");}, 500);
+    setTimeout(function() {showLightBox(gameStatus);}, 500);
   }
   
 } // checkGameStatus
@@ -229,27 +243,53 @@ function checkWin() {
   
   // top row
   if (cb[1] != "" && cb[1] == cb[2] && cb[2] == cb[3]) {
-    showLightBox("Contrats! You Won!"); 
+    showLightBox("Contrats! You Won!");
+    winner.set(playerNumber); 
+    newGame(); 
     return true;
   }
   if (cb[4] != "" && cb[4] == cb[5] && cb[5] == cb[6]) {
-    showLightBox("Contrats! You Won!"); 
+    showLightBox("Contrats! You Won!");
+    winner.set(playerNumber);
+    newGame();   
     return true;
   }
   if (cb[7] != "" && cb[7] == cb[8] && cb[8] == cb[9]) {
     showLightBox("Contrats! You Won!"); 
+    winner.set(playerNumber); 
+    newGame(); 
     return true;
   }
   if (cb[1] != "" && cb[1] == cb[4] && cb[4] == cb[7]) {
     showLightBox("Contrats! You Won!"); 
+    winner.set(playerNumber); 
+    newGame(); 
     return true;
   }
   if (cb[2] != "" && cb[2] == cb[5] && cb[5] == cb[8]) {
     showLightBox("Contrats! You Won!"); 
+    winner.set(playerNumber); 
+    newGame(); 
     return true;
   }
   if (cb[3] != "" && cb[3] == cb[6] && cb[6] == cb[9]) {
     showLightBox("Contrats! You Won!"); 
+    winner.set(playerNumber);
+    newGame();  
+    return true;
+  }
+
+  // diagonal
+  if (cb[1] != "" && cb[1] == cb[5] && cb[5] == cb[9]) {
+    showLightBox("Contrats! You Won!"); 
+    winner.set(playerNumber);
+    newGame();  
+    return true;
+  }
+  if (cb[3] != "" && cb[3] == cb[5] && cb[5] == cb[7]) {
+    showLightBox("Contrats! You Won!"); 
+    winner.set(playerNumber);
+    newGame();  
     return true;
   }
   
@@ -266,11 +306,11 @@ function changeVisibility(divID) {
 } // changeVisibility
 
 // display message in lightbox
-function showLightBox(message, message2) {
+function showLightBox(message) {
   
   // set messages
   document.getElementById("message").innerHTML = message;
-  document.getElementById("message2").innerHTML = message2;
+  //document.getElementById("message2").innerHTML = message2;
   
   // show lightbox 
   changeVisibility("lightbox");
