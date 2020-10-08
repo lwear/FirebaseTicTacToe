@@ -39,6 +39,14 @@ let otherGrid;
 
 const turn = firebase.database().ref('turn'); 
 
+Player1DB.once("value", function(data) {
+    if (data.val() == 0) {
+      Player1DB.set({online: 0});
+      Player2DB.set({online: 0});
+    }
+}); 
+
+
 
 // anonymous function which runs when the window is closed
 window.onunload = function () {
