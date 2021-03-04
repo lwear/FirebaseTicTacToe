@@ -1,14 +1,10 @@
 ## Welcome to the start of your multiplayer tic-tac-toe project! 
 
-
-#### The most recent demo version will always be avalible here: <https://tictactoe-2cc0f.web.app/> To USE the demo, open it twice, in two different tabs. 
+#### Demo Version: <https://tictactoe-2cc0f.web.app/> To USE the demo, open it twice, in two different tabs. 
 
 ### 🛑 If you have any questions, issues, or concerns about the code, please create an issue [HERE](https://github.com/MatthewHightech/firebase-tic-tac-toe/issues/new) and I will try and get back to you ASAP :) 
-#### If you are really stuck, you can look at the source code for the most recent version, but Mrs. Wear will check if you just copy and pasted...👀 so don't. 
 
-This project will be broken down into different stages, and I will post source code, and live demo for the next stage up here as soon as I have it functional. 
-
-TASK 1 🐳 : Your task, should you choose to accept, is to start a *firebase* project with the [Firebase Command Line Interface](https://firebase.google.com/docs/cli)
+TASK 1 🐳 : Start a *firebase* project with the [Firebase Command Line Interface](https://firebase.google.com/docs/cli)
 and host it on a local server
   1. Install the Firebase CLI on your machine using `npm install -g firebase-tools` in your console of choice (Windows Command Prompt)
   2. Go to <https://firebase.google.com/> and setup your account and create a new project
