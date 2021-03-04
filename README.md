@@ -4,10 +4,15 @@
 
 ### 🛑 If you have any questions, issues, or concerns about the code, please create an issue [HERE](https://github.com/MatthewHightech/firebase-tic-tac-toe/issues/new) and I will try and get back to you ASAP :) 
 
-TASK 1 🐳 : Start a *firebase* project with the [Firebase Command Line Interface](https://firebase.google.com/docs/cli)
+TASK 1 🐳 : Get set up Firebase. Start a *firebase* project with the [Firebase Command Line Interface](https://firebase.google.com/docs/cli)
 and host it on a local server
-  1. Install the Firebase CLI on your machine using `npm install -g firebase-tools` in your console of choice (Windows Command Prompt)
-  2. Go to <https://firebase.google.com/> and setup your account and create a new project
+  1. Download the base code for this project. ****Note to self: need to test code in this project to make sure it will work****
+  2. Store the code on your local machine in a folder. This folder will now be referred to as your "project folder."
+  3. Go to <https://firebase.google.com/> and setup your account.
+  4. Create a new project, don't bother enabling Google Analytics. Add a web app and select hosting. Register app.
+  5. The Firebase site will provice you with some html scripts. Copy and paste the code into index.html if required. 
+  6. Run Windows Powershell on your local machine, and install the Firebase CLI using `npm install -g firebase-tools` 
+  
   3. Navigate to your project folder and run `firebase login` to sign into your account you just created a new project in
   4. To check you've logged in correctly, run `firebase projects:list` and you should see the project you just created
   5. Now run `firebase init` to setup your project. Follow the instructions you're prompted with, first by hitting space on `Database` and `Hosting` 
