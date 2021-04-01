@@ -1,8 +1,8 @@
 ## Welcome to the Multiplayer Tic Tac Toe Project! 
 
-#### Demo Version: <https://tictactoe-2cc0f.web.app/> To USE the demo, open it twice, in two different tabs. 
+#### Demo Version: <https://tictactoe-2cc0f.web.app/> To use the demo, open it twice, in two different tabs. 
 
-If you have any questions, issues, or concerns about the code, please create an issue [here](https://github.com/lwear/FirebaseTicTacToe/issues/new)>
+If you have any questions, issues, or concerns about the code, please create an issue [here](https://github.com/lwear/FirebaseTicTacToe/issues/new).
 
 ## TASK 1: Run a Firebase Project on your local machine (using a server).
   1. Download the base code for this project. ****Note to self: need to test code in this project to make sure it will work****
@@ -22,22 +22,21 @@ If you have any questions, issues, or concerns about the code, please create an 
   6. Now run `firebase emulators:start` This will run your local server. You will need to do this every time you want to view your project. 
   7. If you go to a new browser tab, and type in `http://localhost:5000` you will see the website currently associated with this Firebase project.
   
-TASK 2 : Now that your local server is running, it's time to get things going! Now we're going to replace the default code with the *tic-tac-toe* codebase Mrs. Wear will give you. 
+ 
 
 *NOTE: A firebase project will only run code in the `project_name/public/` folder. If you would like to change the name, open `project_name/firebase.json` and change the value of the `hosting { public: "public" }` to the name of the folder with your code in it.*
-  1. First delete `public/index.html` in your project folder
-  2. Now in `public/` copy the index.html, tictactoe.js, tictactoe.css, and x.png
-  3. In the head of index.html you'll need to add the firebase library, and database library with these links 
+
+## TASK 2: Set up your app to support Firebase.
+  1. In the head of index.html you'll need to add the firebase library, and database library with these links 
   ```
     <script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-app.js"></script>
-
     <script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-database.js"></script>
   ```
     
-  4. Now in tictactoe.js, you'll need to add your API reference at the top of the file. This will be unique to each person and you can find it in your *settings -> project settings*
-  in the [firebase console of your project](https://console.firebase.google.com/)
+  2. In a browser, go to the [Firebase console of your project](https://console.firebase.google.com/). Choose your project, and click the gear next to "Project Overview" and select "Project Settings".  Scroll down to "Firebase SDK snippet" and select "CDN". Copy and paste the code from between the &gt;script> and &gt;/script> tags.  Now paste this code into the top of tictactoe.js. This will be unique to each person.
   
-TASK 3 🐢 : This task is to setup the database to recognize when a player is online OR not. There will be a message in the sub-heading on the FIRST window saying "Waiting for second player" 
+  
+## TASK 3: This task is to setup the database to recognize when a player is online OR not. There will be a message in the sub-heading on the FIRST window saying "Waiting for second player" 
 online. 
   1. Take a look at the demo site to see how this will work. Open ANOTHER copy of the site and see what happens to the sub-header text. Now close tab and see what happens. READ the firebase docs for reading and writing here: <https://firebase.google.com/docs/database/web/read-and-write> 
   2. You will need to manually setup the children for your database by going to the *realtime database* on the firebase console and clicking *add children* and pick a name
