@@ -27,7 +27,7 @@ If you have any questions, issues, or concerns about the code, please create an 
 *NOTE: A firebase project will only run code in the `project_name/public/` folder. If you would like to change the name, open `project_name/firebase.json` and change the value of the `hosting { public: "public" }` to the name of the folder with your code in it.*
 
 ## TASK 2: Set up your app to support Firebase and create the Database.
-  1.At the top of `<head>` in index.html, add the firebase library, and database library with these links 
+  1. At the top of `<head>` in index.html, add the firebase library, and database library with these links 
   ```
     <script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-database.js"></script>
