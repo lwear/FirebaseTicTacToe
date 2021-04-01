@@ -26,8 +26,8 @@ If you have any questions, issues, or concerns about the code, please create an 
 
 *NOTE: A firebase project will only run code in the `project_name/public/` folder. If you would like to change the name, open `project_name/firebase.json` and change the value of the `hosting { public: "public" }` to the name of the folder with your code in it.*
 
-## TASK 2: Set up your app to support Firebase.
-  1. In the head of index.html you'll need to add the firebase library, and database library with these links 
+## TASK 2: Set up your app to support Firebase and create the Database.
+  1.At the top of `&lt;head>` in index.html, add the firebase library, and database library with these links 
   ```
     <script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-database.js"></script>
@@ -39,9 +39,9 @@ If you have any questions, issues, or concerns about the code, please create an 
 ## TASK 3: This task is to setup the database to recognize when a player is online OR not. There will be a message in the sub-heading on the FIRST window saying "Waiting for second player" 
 online. 
   1. Take a look at the demo site to see how this will work. Open ANOTHER copy of the site and see what happens to the sub-header text. Now close tab and see what happens. READ the firebase docs for reading and writing here: <https://firebase.google.com/docs/database/web/read-and-write> 
-  2. You will need to manually setup the children for your database by going to the *realtime database* on the firebase console and clicking *add children* and pick a name
-  (player 1, and player 2?) with a default value of 0. This is what my database structure looks like at the current stage ![image](https://github.com/MatthewHightech/firebase-tic-tac-toe/blob/master/public/dbStructure.PNG) With a 1 if the user is online, and a 0 if the user is offline. 
-  3. To allow the database to be accessed until June 30, 2021, you will need to replace the code in `your_project_folder/database.rules.json
+  2. Go to the *Realtime Database* on the Firebase console and click "Create Database". Choose "Start in Test Mode" and click "Enable." 
+  3. Manually setup the children for your database by and clicking "+" in the white Data screen.   Create p1 and p2 with a default value of 0. This is what my database structure looks like at the current stage ![image](https://raw.githubusercontent.com/lwear/FirebaseTicTacToe/master/public/dbStructure.PNG) With a 1 if the user is online, and a 0 if the user is offline. Also create p1Grid and p2Grid as shown.
+  4. To allow the database to be accessed until June 30, 2021, you will need to replace the code in `your_project_folder/database.rules.json
   ``` 
   {
   "rules": {
@@ -50,8 +50,13 @@ online.
   }
 }
 ```
+ 5. Now load your tic tac toe game in a browser on localhost:5000.  It should now say "Waiting for second player to join".  This means it's working!
+ 6. Also, look at the RealTime Database in the Firebase Console, and you should see p1 showing "online:1".
+ 7. Now open the tic tac toe game in a second browser tab on localhost:5000 and it should say "Waiting fo opponent to move".  Go to the first tab with the game loaded and notice it now says "Your Move". Check the database again and notice that p2 now shows "online:1".
+ 8. Congratulations, your online database is now working.
+ 
 
-TASK 4 🦊 : Now that the database knows when each user is online, you need to tell the database who's turn it is. 
+## TASK 4 🦊 : Now that the database knows when each user is online, you need to tell the database who's turn it is. 
 1. Add a child to your database called *turns* and set the default value to 1. 
 2. Inside `function playerTakeTurn(e) {}`, read the data in ONCE using [THIS COMMAND](https://firebase.google.com/docs/database/web/read-and-write#read_data_once) and if it's player 1's turn let them place their piece (NEXT TASK) and if not, show the lightbox and tell them it's not their turn. 
 
