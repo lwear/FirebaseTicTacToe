@@ -41,12 +41,12 @@ online.
   1. Take a look at the demo site to see how this will work. Open ANOTHER copy of the site and see what happens to the sub-header text. Now close tab and see what happens. READ the firebase docs for reading and writing here: <https://firebase.google.com/docs/database/web/read-and-write> 
   2. You will need to manually setup the children for your database by going to the *realtime database* on the firebase console and clicking *add children* and pick a name
   (player 1, and player 2?) with a default value of 0. This is what my database structure looks like at the current stage ![image](https://github.com/MatthewHightech/firebase-tic-tac-toe/blob/master/public/dbStructure.PNG) With a 1 if the user is online, and a 0 if the user is offline. 
-  3. For anything to work, you will need to replace the code in `your_project_folder/database.rules.json
+  3. To allow the database to be accessed until June 30, 2021, you will need to replace the code in `your_project_folder/database.rules.json
   ``` 
   {
   "rules": {
-    ".read": "now < 1604476800000",  // 2020-11-4
-    ".write": "now < 1604476800000",  // 2020-11-4
+    ".read": "now < 1625094901000",  // 2021-06-30 stops allowing use of database after this date
+    ".write": "now < 1625094901000",  // 2021-06-30
   }
 }
 ```
