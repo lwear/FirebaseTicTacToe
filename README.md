@@ -2,7 +2,7 @@
 
 #### Demo Version: <https://tictactoe-2cc0f.web.app/> To USE the demo, open it twice, in two different tabs. 
 
-### 🛑 If you have any questions, issues, or concerns about the code, please create an issue [HERE](https://github.com/MatthewHightech/firebase-tic-tac-toe/issues/new) and I will try and get back to you ASAP :) 
+### If you have any questions, issues, or concerns about the code, please create an issue [HERE](https://github.com/lwear/FirebaseTicTacToe/issues/new)
 
 TASK 1 🐳 : Get set up Firebase. Start a *firebase* project with the [Firebase Command Line Interface](https://firebase.google.com/docs/cli)
 and host it on a local server
