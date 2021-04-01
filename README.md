@@ -4,13 +4,14 @@
 
 ### If you have any questions, issues, or concerns about the code, please create an issue [here](https://github.com/lwear/FirebaseTicTacToe/issues/new)
 
-TASK 1: Start a  basic Firebase project using the Firebase Command Line Interface and host it on a local server.
+TASK 1: Start a basic Firebase project using the Firebase Command Line Interface and host it on a local server.
   1. Download the base code for this project. ****Note to self: need to test code in this project to make sure it will work****
   2. Store the code on your local machine in a folder. This folder will now be referred to as your "project folder."
   3. Go to <https://firebase.google.com/> and setup your account.
-  4. Create a new project, don't enable Google Analytics. Add a web app and select hosting. Register app.
-  5. The Firebase site will provice you with some html scripts under the title **Firebase SDK Snippet**. Select CDN and copy and paste the code into the bottom of the `<body>` tag in `index.html`.
-  6. Install the Firebase Command Line Interface (CLI). On Windows, follow the [npm instructions for Windows](https://firebase.google.com/docs/cli#windows-npm)
+  4. Create a new project, don't enable Google Analytics. Add a web app and select "Firebase hosting". Click "Register app".
+  5. The Firebase site will provice you with some html scripts under the title **Add Firebase SDK**. Ignore it for now. Also ignore Installing the Firebase CLI (you do this in the next step) and you can also ignore the "Deploy to Firebase Hosting". Click "continue to the console".
+  6. Leave the Firebase website for now.
+  7. Install the Firebase Command Line Interface (CLI). On Windows, follow the [npm instructions for Windows](https://firebase.google.com/docs/cli#windows-npm)
      After downloading and installing Node.js, run Windows Powershell on your local machine, and install the Firebase CLI using `npm install -g firebase-tools` 
   7. In PowerShell, navigate to your project folder using the change directory command:  `cd "H:\Documents\webdev12\myprojectfolder"`
   8. Now run `firebase login` to sign into your Firebase account.
@@ -19,7 +20,7 @@ TASK 1: Start a  basic Firebase project using the Firebase Command Line Interfac
   to select them for your project. Next select `use existing project` and choose the project you just created. Finish the setup with default answers and yes. 
   6. Now run `firebase serve` This will run your local server. You will need to do this every time you want to view your project. 
   
-TASK 2 🐤 : Now that your local server is running, it's time to get things going! Now we're going to replace the default code with the *tic-tac-toe* codebase Mrs. Wear will give you. 
+TASK 2 : Now that your local server is running, it's time to get things going! Now we're going to replace the default code with the *tic-tac-toe* codebase Mrs. Wear will give you. 
 
 *NOTE: A firebase project will only run code in the `project_name/public/` folder. If you would like to change the name, open `project_name/firebase.json` and change the value of the `hosting { public: "public" }` to the name of the folder with your code in it.*
   1. First delete `public/index.html` in your project folder
