@@ -11,13 +11,15 @@ TASK 1: Start a basic Firebase project using the Firebase Command Line Interface
   4. Create a new project, don't enable Google Analytics. Add a web app and select "Firebase hosting". Click "Register app".
   5. The Firebase site will provice you with some html scripts under the title **Add Firebase SDK**. Ignore it for now. Also ignore Installing the Firebase CLI (you do this in the next step) and you can also ignore the "Deploy to Firebase Hosting". Click "continue to the console".
   6. Leave the Firebase website for now.
-  7. Install the Firebase Command Line Interface (CLI). On Windows, download and install [Node.js](https://nodejs.org/en/). Then run Windows Powershell on your local machine, and install the Firebase CLI using `npm install -g firebase-tools` These instructions are modified from [npm instructions for Windows](https://firebase.google.com/docs/cli#windows-npm)
-  7. In PowerShell, navigate to your project folder using the change directory command:  `cd "H:\Documents\webdev12\myprojectfolder"`
-  8. Now run `firebase login` to sign into your Firebase account.
-  9. To check you've logged in correctly, run `firebase projects:list` and you should see the project you just created.
-  10. Now run `firebase init` to setup your project. Follow the instructions you're prompted with, first by hitting space on `Database` and `Hosting` 
+  7. On Windows, download and install [Node.js](https://nodejs.org/en/). 
+  8. Install the Firebase Command Line Interface (CLI)L rfireun Windows Powershell on your local machine, and install the Firebase CLI using `npm install -g firebase-tools` These instructions are modified from [npm instructions for Windows](https://firebase.google.com/docs/cli#windows-npm)
+  9. In PowerShell, navigate to your project folder using the change directory command:  `cd "H:\Documents\webdev12\myprojectfolder"`
+  10. Now run `firebase login` to sign into your Firebase account.
+  11. To check you've logged in correctly, run `firebase projects:list` and you should see the project you just created.
+  12. Now run `firebase init` to setup your project. Follow the instructions you're prompted with, first by hitting space on `Database` and `Hosting` 
   to select them for your project. Next select `use existing project` and choose the project you just created. Finish the setup with default answers and yes. 
   6. Now run `firebase serve` This will run your local server. You will need to do this every time you want to view your project. 
+  7. If you go to a new browser tab, and type in `http://localhost:5000` you will see the website currently associated with this Firebase project.
   
 TASK 2 : Now that your local server is running, it's time to get things going! Now we're going to replace the default code with the *tic-tac-toe* codebase Mrs. Wear will give you. 
 
