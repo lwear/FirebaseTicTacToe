@@ -1,10 +1,10 @@
-## Welcome to the start of your multiplayer tic-tac-toe project! 
+## Welcome to the Multiplayer Tic Tac Toe Project! 
 
 #### Demo Version: <https://tictactoe-2cc0f.web.app/> To USE the demo, open it twice, in two different tabs. 
 
-<If you have any questions, issues, or concerns about the code, please create an issue [here](https://github.com/lwear/FirebaseTicTacToe/issues/new)>
+If you have any questions, issues, or concerns about the code, please create an issue [here](https://github.com/lwear/FirebaseTicTacToe/issues/new)>
 
-##TASK 1: Run a Firebase Project on your local machine (using a server).
+## TASK 1: Run a Firebase Project on your local machine (using a server).
   1. Download the base code for this project. ****Note to self: need to test code in this project to make sure it will work****
   2. Store the code on your local machine in a folder. This folder will now be referred to as your "project folder."
   3. Go to <https://firebase.google.com/> and setup your account.
