@@ -33,7 +33,7 @@ If you have any questions, issues, or concerns about the code, please create an 
     <script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-database.js"></script>
   ```
     
-  2. In a browser, go to the [Firebase console of your project](https://console.firebase.google.com/). Choose your project, and click the gear next to "Project Overview" and select "Project Settings".  Scroll down to "Firebase SDK snippet" and select "CDN". Copy and paste the code from between the &gt;script> and &gt;/script> tags.  Now paste this code into the top of tictactoe.js. This will be unique to each person.
+  2. In a browser, go to the [Firebase console of your project](https://console.firebase.google.com/). Choose your project, and click the gear next to "Project Overview" and select "Project Settings".  Scroll down to "Firebase SDK snippet" and select "CDN". Copy and paste the code from between the &lt;script> and &lt;/script> tags.  Now paste this code into the top of tictactoe.js. This will be unique to each person.
   
   
 ## TASK 3: This task is to setup the database to recognize when a player is online OR not. There will be a message in the sub-heading on the FIRST window saying "Waiting for second player" 
