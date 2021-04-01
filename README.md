@@ -8,17 +8,18 @@ TASK 1: Start a basic Firebase project using the Firebase Command Line Interface
   1. Download the base code for this project. ****Note to self: need to test code in this project to make sure it will work****
   2. Store the code on your local machine in a folder. This folder will now be referred to as your "project folder."
   3. Go to <https://firebase.google.com/> and setup your account.
-  4. Create a new project, don't enable Google Analytics. Add a web app and select "Firebase hosting". Click "Register app".
-  5. The Firebase site will provice you with some html scripts under the title **Add Firebase SDK**. Ignore it for now. Also ignore Installing the Firebase CLI (you do this in the next step) and you can also ignore the "Deploy to Firebase Hosting". Click "continue to the console".
-  6. Leave the Firebase website for now.
-  7. On Windows, download and install [Node.js](https://nodejs.org/en/). 
-  8. Install the Firebase Command Line Interface (CLI)L rfireun Windows Powershell on your local machine, and install the Firebase CLI using `npm install -g firebase-tools` These instructions are modified from [npm instructions for Windows](https://firebase.google.com/docs/cli#windows-npm)
-  9. In PowerShell, navigate to your project folder using the change directory command:  `cd "H:\Documents\webdev12\myprojectfolder"`
-  10. Now run `firebase login` to sign into your Firebase account.
-  11. To check you've logged in correctly, run `firebase projects:list` and you should see the project you just created.
-  12. Now run `firebase init` to setup your project. Follow the instructions you're prompted with, first by hitting space on `Database` and `Hosting` 
+  4. Create a new project, don't enable Google Analytics. Click "Create Project" and when it is done, "Continue".
+  5. Add a web app `</>`, give it a name like "TicTacToe", select "Firebase hosting". Click "Register app".
+  6. The Firebase site will provice you with some html scripts under the title **Add Firebase SDK**. Ignore it for now. Also ignore Installing the Firebase CLI (you do this in the next step) and you can also ignore the "Deploy to Firebase Hosting". Click "continue to the console".
+  7. Leave the Firebase website for now.
+  8. On Windows, download and install [Node.js](https://nodejs.org/en/). 
+  9. Install the Firebase Command Line Interface (CLI)L rfireun Windows Powershell on your local machine, and install the Firebase CLI using `npm install -g firebase-tools` These instructions are modified from [npm instructions for Windows](https://firebase.google.com/docs/cli#windows-npm)
+  10. In PowerShell, navigate to your project folder using the change directory command:  `cd "H:\Documents\webdev12\myprojectfolder"`
+  11. Now run `firebase login` to sign into your Firebase account.
+  12. To check you've logged in correctly, run `firebase projects:list` and you should see the project you just created.
+  13. Now run `firebase init` to setup your project. Follow the instructions you're prompted with, first by hitting space on `Database` and `Hosting` 
   to select them for your project. Next select `use existing project` and choose the project you just created. Finish the setup with default answers and yes. 
-  6. Now run `firebase serve` This will run your local server. You will need to do this every time you want to view your project. 
+  6. Now run `firebase emulators:start` This will run your local server. You will need to do this every time you want to view your project. 
   7. If you go to a new browser tab, and type in `http://localhost:5000` you will see the website currently associated with this Firebase project.
   
 TASK 2 : Now that your local server is running, it's time to get things going! Now we're going to replace the default code with the *tic-tac-toe* codebase Mrs. Wear will give you. 
@@ -28,9 +29,9 @@ TASK 2 : Now that your local server is running, it's time to get things going! N
   2. Now in `public/` copy the index.html, tictactoe.js, tictactoe.css, and x.png
   3. In the head of index.html you'll need to add the firebase library, and database library with these links 
   ```
-    <script src="https://www.gstatic.com/firebasejs/7.22.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-app.js"></script>
 
-    <script src="https://www.gstatic.com/firebasejs/7.22.1/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-database.js"></script>
   ```
     
   4. Now in tictactoe.js, you'll need to add your API reference at the top of the file. This will be unique to each person and you can find it in your *settings -> project settings*
