@@ -9,7 +9,7 @@ TASK 1: Start a  basic Firebase project using the Firebase Command Line Interfac
   2. Store the code on your local machine in a folder. This folder will now be referred to as your "project folder."
   3. Go to <https://firebase.google.com/> and setup your account.
   4. Create a new project, don't enable Google Analytics. Add a web app and select hosting. Register app.
-  5. The Firebase site will provice you with some html scripts under the title **Firebase SDK Snippet**. Copy and paste the code into the bottom of the `<body>` tag in `index.html`.
+  5. The Firebase site will provice you with some html scripts under the title **Firebase SDK Snippet**. Select CDN and copy and paste the code into the bottom of the `<body>` tag in `index.html`.
   6. Install the Firebase Command Line Interface (CLI). On Windows, follow the [npm instructions for Windows](https://firebase.google.com/docs/cli#windows-npm)
      After downloading and installing Node.js, run Windows Powershell on your local machine, and install the Firebase CLI using `npm install -g firebase-tools` 
   7. In PowerShell, navigate to your project folder using the change directory command:  `cd "H:\Documents\webdev12\myprojectfolder"`
