@@ -26,16 +26,17 @@ If you have any questions, issues, or concerns about the code, please create an 
 
 *NOTE: A firebase project will only run code in the `project_name/public/` folder. If you would like to change the name, open `project_name/firebase.json` and change the value of the `hosting { public: "public" }` to the name of the folder with your code in it.*
 
-## TASK 2: Set up your app to support Firebase and create the Database.
-  1. At the top of `<head>` in index.html, add the firebase library, and database library with these links 
+## TASK 2: Create the database, and get your app to access the database.
+  1. To get your app to make use of Firebase, at the top of `<head>` in index.html, add the firebase library, and database library with these links 
   ```
     <script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-database.js"></script>
   ```
     
-  2. In a browser, go to the [Firebase console of your project](https://console.firebase.google.com/). Choose your project, and click the gear next to "Project Overview" and select "Project Settings".  Scroll down to "Firebase SDK snippet" and select "CDN". Copy and paste the code from between the &lt;script> and &lt;/script> tags.  Now paste this code into the top of tictactoe.js. This will be unique to each person.
-  3. Go to the *Realtime Database* on the Firebase console and click "Create Database". Choose "Start in Test Mode" and click "Enable." 
-  4. Manually setup the children for your database by and clicking "+" in the white Data screen.   Create p1 and p2 with a default value of 0. This is what my database structure looks like at the current stage ![image](https://raw.githubusercontent.com/lwear/FirebaseTicTacToe/master/public/dbStructure.PNG) With a 1 if the user is online, and a 0 if the user is offline. Also create p1Grid and p2Grid as shown.
+  2. In a browser, go to the [Firebase console of your project](https://console.firebase.google.com/). Choose your project, click the gear next to "Project Overview" and select "Project Settings".  Scroll down to "Firebase SDK snippet" and select "CDN". Copy and paste the code from between the &lt;script> and &lt;/script> tags.  Now paste this code into the top of tictactoe.js. This will be unique to each person.
+  3. Go to the *Realtime Database* on the left side of the Firebase console and click "Create Database". Choose "Start in Test Mode" and click "Enable." 
+  4. Manually setup the children for your database by and clicking "+" in the white screen under the "Data" tab.   Create p1 and p2 with a default value of 0. This is what my database structure looks like at the current stage ![image](https://raw.githubusercontent.com/lwear/FirebaseTicTacToe/master/public/dbStructure.PNG) 
+  With a 1 if the user is online, and a 0 if the user is offline. Also create p1Grid and p2Grid as shown.
   5. To allow the database to be accessed until June 30, 2021, you will need to replace the code in `your_project_folder/database.rules.json
   ``` 
   {
@@ -45,11 +46,11 @@ If you have any questions, issues, or concerns about the code, please create an 
   }
 }
 ```
- 5. Now load your tic tac toe game in a browser on localhost:5000.  It should now say "Waiting for second player to join".  This means it's working!
+ 5. Now load your Tic Tac Toe game in a browser on localhost:5000.  It should now say "Waiting for second player to join".  This means it's working!
  6. Also, look at the RealTime Database in the Firebase Console, and you should see p1 showing "online:1".
- 7. Now open the tic tac toe game in a second browser tab on localhost:5000 and it should say "Waiting fo opponent to move".  Go to the first tab with the game loaded and notice it now says "Your Move". Check the database again and notice that p2 now shows "online:1".
+ 7. Now open the Tic Tac Toe  game in a second browser tab on localhost:5000 and it should say "Waiting fo opponent to move".  Go to the first tab with the game loaded and notice it now says "Your Move". Check the database again and notice that p2 now shows "online:1".
  8. Congratulations, your online database is now working.
- 9.  Now examine the code and read the Firebase docs for reading and writing here: <https://firebase.google.com/docs/database/web/read-and-write> 
+ 9. Now examine the code in tictactoe.js and read the Firebase docs for reading and writing here: <https://firebase.google.com/docs/database/web/read-and-write> 
  
 
 ## TASK 4 🦊 : Now that the database knows when each user is online, you need to tell the database who's turn it is. 
