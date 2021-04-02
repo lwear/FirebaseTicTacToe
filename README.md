@@ -54,7 +54,7 @@ If you have any questions, issues, or concerns about the code, please create an 
  
 
 ## TASK 4 🦊 : Now that the database knows when each user is online, you need to tell the database who's turn it is. 
-1. Add a child to your database called *turns* and set the default value to 1. 
+1. Add a child to your database called *turn* and set the default value to 1. 
 2. Inside `function playerTakeTurn(e) {}`, read the data in ONCE using [THIS COMMAND](https://firebase.google.com/docs/database/web/read-and-write#read_data_once) and if it's player 1's turn let them place their piece (NEXT TASK) and if not, show the lightbox and tell them it's not their turn. 
 
 TASK 5 🐙 : If it's the players turn, let them make a move locally (code is already in template) and add code to update that players grid in the database. 
