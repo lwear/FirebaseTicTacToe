@@ -1,12 +1,11 @@
 
-
 @import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
 
 
 .box {
   height: 175px;
   width: 175px;
-  background-color:#f7beff;
+  background-color:#111;
   display:inline-block;
   margin:10px;
   vertical-align:top;
@@ -15,15 +14,15 @@
   font-size:100px;  
 }
 
-/* some changes to CSS here */
+
 .titletext {
   text-align:center;
-  color:#400082;
+  color:#6495ED;
 }
 
-h1.titletext {font-size:3em} /* new */
-h3.titletext {font-size:2em} /* new */
-p.titletext{font-size:2em;}  /* new */
+h1.titletext {font-size:3em} 
+h3.titletext {font-size:2em} 
+p.titletext{font-size:2em;}  
 
 
 #main {
@@ -32,13 +31,14 @@ p.titletext{font-size:2em;}  /* new */
   margin-right:auto;
   height:585px;
   width:595px;
-  background-color:#400082;
+  background-color:#6495ED;  
   padding:10px;
 
 }
 body {
-  background-color:#f7beff; 
-  font-family: 'Righteous', Arial, cursive;  /* moved this here */
+  background-color:#111; 
+  color:white;
+  font-family: 'Righteous', Arial, cursive; 
 }
 
 /* Light Box CSS */
@@ -86,7 +86,7 @@ body {
   background-color:rgba(255,255,255,0.9);
   z-index:1;
   padding:30px;
-  border:thick solid #400082;
+  border:thick solid #6495ED;
   
 }
 
@@ -105,16 +105,6 @@ body {
   height:40px;
   width:100px;
   background-color:#cd4dcc;
-  color:#400082;
+  color:#6495ED;
 }
 
-
-
-/*
-Color Scheme 
-#400082 - Dark purple
-#7e0cf5 - medium purple
-#cd4dcc - light purple
-#f7beff - offwhite purple
-https://colorhunt.co/palette/164690  
-*/
