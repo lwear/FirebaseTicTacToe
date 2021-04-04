@@ -34,7 +34,7 @@ If you have any questions, issues, or concerns about the code, please create an 
     <script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-database.js"></script>
   ```
     
-  2. In a browser, go to the [Firebase console of your project](https://console.firebase.google.com/). Choose your project, click the gear next to "Project Overview" and select "Project Settings".  Scroll down to "Firebase SDK snippet" and select "CDN". Copy and paste the code from between the &lt;script> and &lt;/script> tags.  Now paste this code into the top of tictactoe.js. This will be unique to each person.
+  2. In a browser, go to the [Firebase console of your project](https://console.firebase.google.com/). Choose your project, click the gear for "Project Settings".  Scroll down to "Firebase SDK snippet" and select "CDN". Copy and paste the code from between the &lt;script> and &lt;/script> tags.  Now paste this code into the top of tictactoe.js. This will be unique to each person.
   3. Go to the *Realtime Database* on the left side of the Firebase console and click "Create Database". Choose "Start in Test Mode" and click "Enable." 
   4. Manually setup a child in your database by clicking "+" in the white screen under the "Data" tab.   Create `numPlayers` with a default value of 0. 
   5. To allow the database to be accessed until June 30, 2021, you will need to replace the code in `your_project_folder/database.rules.json
