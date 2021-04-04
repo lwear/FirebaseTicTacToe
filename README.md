@@ -1,6 +1,6 @@
 ## Welcome to the Multiplayer Tic Tac Toe Project! 
 
-#### Demo Video: <https://youtu.be/ib9sLYcQAPU> Watch this video to see what the project is going to look like.
+#### Watch this video to see what the project is going to look like: <https://youtu.be/ib9sLYcQAPU> 
 
 If you have any questions, issues, or concerns about the code, please create an issue [here](https://github.com/lwear/FirebaseTicTacToe/issues/new).
 
