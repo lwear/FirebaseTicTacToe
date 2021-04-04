@@ -5,7 +5,7 @@
 If you have any questions, issues, or concerns about the code, please create an issue [here](https://github.com/lwear/FirebaseTicTacToe/issues/new).
 
 ## TASK 1: Run a Firebase Project on your local machine (using a server).
-  1. Download the base code for this project. ****Note to self: need to test code in this project to make sure it will work****
+  1. Download the base code for this project. 
   2. Store the code on your local machine in a folder. This folder will now be referred to as your "project folder."
   3. Go to <https://firebase.google.com/> and setup your account.
   4. Create a new project, don't enable Google Analytics. Click "Create Project" and when it is done, "Continue".
