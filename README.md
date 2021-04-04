@@ -46,10 +46,13 @@ If you have any questions, issues, or concerns about the code, please create an 
   }
 }
 ```
- 5. Now load your Tic Tac Toe game in a browser on localhost:5000.  It should now say "Waiting for second player to join".  This means it's working!
- 6. Also, look at the RealTime Database in the Firebase Console, and you should see numPlayers = 1.
- 7. Now open the Tic Tac Toe  game in a second browser tab on localhost:5000 and it should say "Waiting for opponent to move".  Go to the first tab with the game loaded and notice it now says "Your Turn". Check the database again and notice that numPlayers = 2 and an empty board now appears.
- 8. Congratulations, your online database is now working.
+ 5. Copy and paste the following code into tictactoe.js: 
+```
+const numPlayersDB = firebase.database().ref('numPlayers');
+numPlayersDB.set(1);
+```
+ 6. Now load your Tic Tac Toe game in a browser on localhost:5000 and look at the RealTime Database in the Firebase Console, and you should see numPlayers = 1. This means it's working!
+ 
 
 ## TASK 3: Now that the database knows when each user is online, you need to tell the database who's turn it is. 
 1. Examine the code in tictactoe.js and read the Firebase docs for reading and writing here: <https://firebase.google.com/docs/database/web/read-and-write> 
