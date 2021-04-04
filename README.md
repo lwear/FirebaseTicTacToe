@@ -36,26 +36,23 @@ If you have any questions, issues, or concerns about the code, please create an 
     
   2. In a browser, go to the [Firebase console of your project](https://console.firebase.google.com/). Choose your project, click the gear next to "Project Overview" and select "Project Settings".  Scroll down to "Firebase SDK snippet" and select "CDN". Copy and paste the code from between the &lt;script> and &lt;/script> tags.  Now paste this code into the top of tictactoe.js. This will be unique to each person.
   3. Go to the *Realtime Database* on the left side of the Firebase console and click "Create Database". Choose "Start in Test Mode" and click "Enable." 
-  4. Manually setup the children for your database by and clicking "+" in the white screen under the "Data" tab.   Create p1 and p2 with a default value of 0. This is what my database structure looks like at the current stage ![image](https://raw.githubusercontent.com/lwear/FirebaseTicTacToe/master/public/dbStructure.PNG) 
-  With a 1 if the user is online, and a 0 if the user is offline. Also create p1Grid and p2Grid as shown.
+  4. Manually setup a child in your database by clicking "+" in the white screen under the "Data" tab.   Create `numPlayers` with a default value of 0. 
   5. To allow the database to be accessed until June 30, 2021, you will need to replace the code in `your_project_folder/database.rules.json
   ``` 
   {
   "rules": {
-    ".read": "now < 1625094901000",  // 2021-06-30 stops allowing use of database after this date
+    ".read": "now < 1625094901000",  // epoch time for 2021-06-30 stops allowing use of database after this date
     ".write": "now < 1625094901000",  // 2021-06-30
   }
 }
 ```
  5. Now load your Tic Tac Toe game in a browser on localhost:5000.  It should now say "Waiting for second player to join".  This means it's working!
- 6. Also, look at the RealTime Database in the Firebase Console, and you should see p1 showing "online:1".
- 7. Now open the Tic Tac Toe  game in a second browser tab on localhost:5000 and it should say "Waiting fo opponent to move".  Go to the first tab with the game loaded and notice it now says "Your Move". Check the database again and notice that p2 now shows "online:1".
+ 6. Also, look at the RealTime Database in the Firebase Console, and you should see numPlayers = 1.
+ 7. Now open the Tic Tac Toe  game in a second browser tab on localhost:5000 and it should say "Waiting for opponent to move".  Go to the first tab with the game loaded and notice it now says "Your Turn". Check the database again and notice that numPlayers = 2 and an empty board now appears.
  8. Congratulations, your online database is now working.
- 9. Now examine the code in tictactoe.js and read the Firebase docs for reading and writing here: <https://firebase.google.com/docs/database/web/read-and-write> 
- 
 
-## TASK 4 🦊 : Now that the database knows when each user is online, you need to tell the database who's turn it is. 
-1. Add a child to your database called *turn* and set the default value to 1. 
+## TASK 3: Now that the database knows when each user is online, you need to tell the database who's turn it is. 
+1. Examine the code in tictactoe.js and read the Firebase docs for reading and writing here: <https://firebase.google.com/docs/database/web/read-and-write> 
 2. Inside `function playerTakeTurn(e) {}`, read the data in ONCE using [THIS COMMAND](https://firebase.google.com/docs/database/web/read-and-write#read_data_once) and if it's player 1's turn let them place their piece (NEXT TASK) and if not, show the lightbox and tell them it's not their turn. 
 
 TASK 5 🐙 : If it's the players turn, let them make a move locally (code is already in template) and add code to update that players grid in the database. 
