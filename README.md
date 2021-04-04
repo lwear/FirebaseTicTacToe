@@ -28,6 +28,7 @@ If you have any questions, issues, or concerns about the code, please create an 
 *NOTE: A firebase project will only run code in the `project_name/public/` folder. If you would like to change the name, open `project_name/firebase.json` and change the value of the `hosting { public: "public" }` to the name of the folder with your code in it.*
 
 ## TASK 2: Create the database, and get your app to access the database.
+### Demo of Task 2: <https://youtu.be/2JFhsYWVWKo>
   1. To get your app to make use of Firebase, at the top of `<head>` in index.html, add the firebase library, and database library with these links 
   ```
     <script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-app.js"></script>
@@ -54,15 +55,6 @@ numPlayersDB.set(1);
  7. Now load your Tic Tac Toe game in a browser on localhost:5000 and look at the RealTime Database in the Firebase Console, and you should see numPlayers = 1. This means it's working!
  
 
-## TASK 3: Now that the database knows when each user is online, you need to tell the database who's turn it is. 
-1. Examine the code in tictactoe.js and read the Firebase docs for reading and writing here: <https://firebase.google.com/docs/database/web/read-and-write> 
-2. Inside `function playerTakeTurn(e) {}`, read the data in ONCE using [THIS COMMAND](https://firebase.google.com/docs/database/web/read-and-write#read_data_once) and if it's player 1's turn let them place their piece (NEXT TASK) and if not, show the lightbox and tell them it's not their turn. 
+## TASK 3: Listeners and connecting two players.
+### Watch and complete Task 3: <https://youtu.be/2JFhsYWVWKo>
 
-TASK 5 🐙 : If it's the players turn, let them make a move locally (code is already in template) and add code to update that players grid in the database. 
-1. Use [GRID UPDATE COMMAND](https://firebase.google.com/docs/database/web/read-and-write#update_specific_fields) to update specific fields of the database without resetting the entire entry. 
-2. After the player has made their move and saved it to the database, set the *turn* field of the database to the other user
-
-TASK 6 🦜: Update the grid on the local device from the other players grid in the database (If you're player 1, read player 2's grid and update your own AND vise versa)
-1. I suggust writing an `function updateGrid() {}` that reads the other players grid from the database in an ASYNC way. For this, use the *database.on* command built into firebase. Read more about it [HERE](https://firebase.google.com/docs/database/web/read-and-write#listen_for_value_events) This function is designed as a LISTENER which means it will run everytime the database is updated. 
-2. Loop through the other players grid and everytime it finds a letter, update the local grid to match it
-3. Run the update grid function just once, on the load of the website since it's ASYNC, it will automatically run everytime the database is updated. 
