@@ -46,12 +46,12 @@ If you have any questions, issues, or concerns about the code, please create an 
   }
 }
 ```
- 5. Copy and paste the following code into tictactoe.js: 
+ 6. Copy and paste the following code into tictactoe.js: 
 ```
 const numPlayersDB = firebase.database().ref('numPlayers');
 numPlayersDB.set(1);
 ```
- 6. Now load your Tic Tac Toe game in a browser on localhost:5000 and look at the RealTime Database in the Firebase Console, and you should see numPlayers = 1. This means it's working!
+ 7. Now load your Tic Tac Toe game in a browser on localhost:5000 and look at the RealTime Database in the Firebase Console, and you should see numPlayers = 1. This means it's working!
  
 
 ## TASK 3: Now that the database knows when each user is online, you need to tell the database who's turn it is. 
