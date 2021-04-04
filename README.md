@@ -8,18 +8,19 @@ If you have any questions, issues, or concerns about the code, please create an 
   1. Download the base code for this project. 
   2. Store the code on your local machine in a folder. This folder will now be referred to as your "project folder."
   3. Go to <https://firebase.google.com/> and setup your account.
-  4. Create a new project, don't enable Google Analytics. Click "Create Project" and when it is done, "Continue".
-  5. Add a web app `</>`, give it a name like "TicTacToe", select "Firebase hosting". Click "Register app".
-  6. The Firebase site will provice you with some html scripts under the title **Add Firebase SDK**. Ignore it for now. Also ignore Installing the Firebase CLI (you do this in the next step) and you can also ignore the "Deploy to Firebase Hosting". Click "continue to the console".
-  7. Leave the Firebase website for now.
-  8. If not already done, install Node.js: On Windows, download and install [Node.js](https://nodejs.org/en/). 
-  9. If not already done, install the Firebase Command Line Interface (CLI)- run Windows Powershell on your local machine, and install the Firebase CLI using `npm install -g firebase-tools` These instructions are modified from [npm instructions for Windows](https://firebase.google.com/docs/cli#windows-npm).  *You need a full path on the school computers. Mine looks like this: C:\Users\lwear\AppData\Roaming\npm\npm install -g firebase-tools.*
-  10. In PowerShell, navigate to your project folder using the change directory command. Mine looks like this:  `cd "H:\Documents\webdev12\myprojectfolder"`
-  11. Now run `firebase login` to sign into your Firebase account.  This will open a browser window and allow you to log in via the web. Allow firebase to access everything. *You need a full path on the school computers. Mine looks like this: C:\Users\lwear\AppData\Roaming\npm\firebase login.*
+  4. Once you have an account, go to the Firebase console <https://console.firebase.google.com/>.
+  5. Create a new project, don't enable Google Analytics. Click "Create Project" and when it is done, "Continue".
+  6. Add a web app `</>`, give it a name like "TicTacToe", select "Firebase hosting". Click "Register app".
+  7. The Firebase site will provice you with some html scripts under the title **Add Firebase SDK**. Ignore it for now. Also ignore Installing the Firebase CLI (you do this in the next step) and you can also ignore the "Deploy to Firebase Hosting". Click "continue to the console".
+  8. Leave the Firebase website for now.
+  9. If not already done, install Node.js: On Windows, download and install [Node.js](https://nodejs.org/en/). 
+  10. If not already done, install the Firebase Command Line Interface (CLI)- run Windows Powershell on your local machine, and install the Firebase CLI using `npm install -g firebase-tools` These instructions are modified from [npm instructions for Windows](https://firebase.google.com/docs/cli#windows-npm).  *You need a full path on the school computers. Mine looks like this: C:\Users\lwear\AppData\Roaming\npm\npm install -g firebase-tools.*
+  11. In PowerShell, navigate to your project folder using the change directory command. Mine looks like this:  `cd "H:\Documents\webdev12\myprojectfolder"`
+  12. Now run `firebase login` to sign into your Firebase account.  This will open a browser window and allow you to log in via the web. Allow firebase to access everything. *You need a full path on the school computers. Mine looks like this: C:\Users\lwear\AppData\Roaming\npm\firebase login.*
   13. To check you've logged in correctly, run `firebase projects:list` and you should see the project you just created. *You need a full path on the school computers. Mine looks like this: C:\Users\lwear\AppData\Roaming\npm\firebase projects:list.*
   14. Now run `firebase init` to setup your project. Follow the instructions you're prompted with, first by hitting space on `Database` and `Hosting` to select them for your project. Next select `use existing project` and choose the project you just created. Finish the setup with default answers and yes.   *You need a full path on the school computers. Mine looks like this: C:\Users\lwear\AppData\Roaming\npm\firebase init.*
-  6. Now run `firebase emulators:start` This will run your local server. You will need to do this every time you want to view your project.  *You need a full path on the school computers. Mine looks like this: C:\Users\lwear\AppData\Roaming\npm\firebase emulators:start.*
-  7. If you go to a new browser tab, and type in `http://localhost:5000` you will see the website currently associated with this Firebase project.
+  15. Now run `firebase emulators:start` This will run your local server. You will need to do this every time you want to view your project.  *You need a full path on the school computers. Mine looks like this: C:\Users\lwear\AppData\Roaming\npm\firebase emulators:start.*
+  16. If you go to a new browser tab, and type in `http://localhost:5000` you will see the website currently associated with this Firebase project.
   
  
 
