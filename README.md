@@ -57,9 +57,13 @@ numPlayersDB.set(1);
 
 ## TASK 3: Listeners and connecting two players.
 ### Watch and complete Task 3: <https://youtu.be/2JFhsYWVWKo>
-
+ 1. What to do if `firebase emulators:start` throws an error.
+ 2. How to write data to the database.
+ 3. How to get data from the database.
+ 4. How to write listeners for any data change (on) and how to request data only once (once).
+ 
 ## TASK 4: Take a turn and push it to the database.
-### Watch and complete Task 3: <https://youtu.be/2JFhsYWVWKo>
+### Watch and complete Task 4: <https://youtu.be/2JFhsYWVWKo>
  1. Create a representation of the game board in the program and database.
  2. When a user clicks the board, savee it to the database.
  3. Inform all users of the change in data and update all the screens.
