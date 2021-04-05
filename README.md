@@ -85,9 +85,9 @@ numPlayersDB.set(1);
  1. Add win/lose/tie code to updateGame
  2. Write `checkWin()`. Video only covers 1 of 8 cases. Students are expected to complete method.
 
-## TASK 7: Deal with state changes.
-### Watch and complete Task 7: <https://youtu.be/ri25ktZjZtk> 
+## TASK 7: Deal with state changes in number of players.
+### Watch and complete Task 7: <https://youtu.be/joHpUGe-RA4> 
  1. Modify `updateGame()` so that:
     - detect state changes and take non-final actions: if both players are online update bothPlayersOnline
-    - detect state changes and take final actions: both players online and someone disconnects, only one player, gameBoard is null,
+    - detect state changes and take final actions: both players online and someone disconnects, only one player, gameBoard is null.
 
