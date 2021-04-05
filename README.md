@@ -91,3 +91,6 @@ numPlayersDB.set(1);
     - detect state changes and take non-final actions: if both players are online update bothPlayersOnline
     - detect state changes and take final actions: both players online and someone disconnects, only one player, gameBoard is null.
 
+## TASK 8: Turn it into a PWA, and launch it on the Firebase Web Servers.
+ 1. By now, you should know how to turn a website into a PWA. so go ahead and to it
+ 2. Go to <https://firebase.google.com/docs/hosting/test-preview-deploy#deploy-project-directory-to-live> and follow the instructions to deploy your local project to your live firebase channel.  This means firebase will host your app and make it available online at a url like this one: https://tictactoetrial1234.web.app/. 
