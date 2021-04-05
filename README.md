@@ -90,4 +90,4 @@ numPlayersDB.set(1);
  1. Modify `updateGame()` so that:
     - detect state changes and take non-final actions: if both players are online update bothPlayersOnline
     - detect state changes and take final actions: both players online and someone disconnects, only one player, gameBoard is null,
- 2. uncomment "updategame" call in continueGame
+
