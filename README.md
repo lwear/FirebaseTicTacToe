@@ -70,13 +70,13 @@ numPlayersDB.set(1);
 
 ## TASK 5: Controlling User Input
 ### Watch and complete Task 5: <https://youtu.be/DXlXyjjjX2c>
- 1. Modify playerTakeTurn() so that: 
+ 1. Modify `playerTakeTurn()` so that: 
     - it checks if we are in a state that a turn cannot be taken
     - if it's my turn, let me take it (need to write `isMyTurn()` and `getNumTurns()`).
     - if it's not my turn, show a message and don't let me go
     - if a box is already selected, show a message, and don't allow any changes
   
- 2. Modify updateChanges so that:
+ 2. Modify `updateGame()` so that:
     - if the lightbox is visible, do nothing
     - if it's a turn, `setmessage` instructions for the user
   
@@ -87,6 +87,7 @@ numPlayersDB.set(1);
 
 ## TASK 7: Deal with state changes.
 ### Watch and complete Task 7: <https://youtu.be/ri25ktZjZtk> 
- 1. Modify updateChanges so that:
+ 1. Modify `updateGame()` so that:
     - detect state changes and take non-final actions: if both players are online update bothPlayersOnline
     - detect state changes and take final actions: both players online and someone disconnects, only one player, gameBoard is null,
+ 2. uncomment "updategame" call in continueGame
