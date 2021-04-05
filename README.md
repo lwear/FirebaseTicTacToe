@@ -56,7 +56,7 @@ numPlayersDB.set(1);
  
 
 ## TASK 3: Listeners and connecting two players.
-### Watch and complete Task 3: <https://youtu.be/2JFhsYWVWKo>
+### Watch and complete Task 3: <https://youtu.be/vpt9o7O2-5I>
  1. What to do if `firebase emulators:start` throws an error.
  2. How to write data to the database.
  3. How to get data from the database.
