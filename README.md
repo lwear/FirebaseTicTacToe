@@ -77,8 +77,8 @@ numPlayersDB.set(1);
     - if a box is already selected, show a message, and don't allow any changes
   
  2. Modify updateChanges so that:
-   - if the lightbox is visible, do nothing
-   - if it's a turn, `setmessage` instructions for the user
+    - if the lightbox is visible, do nothing
+    - if it's a turn, `setmessage` instructions for the user
   
 ## TASK 6: Determine a win, loss, or tie.
 ### Watch and complete Task 6: <https://youtu.be/ri25ktZjZtk> 
