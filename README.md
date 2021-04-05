@@ -81,7 +81,7 @@ numPlayersDB.set(1);
     - if it's a turn, `setmessage` instructions for the user
   
 ## TASK 6: Determine a win, loss, or tie.
-### Watch and complete Task 6: <https://youtu.be/ri25ktZjZtk> 
+### Watch and complete Task 6: <https://youtu.be/AvrXMdKxMyw> 
  1. Add win/lose/tie code to updateGame
  2. Write `checkWin()`. Video only covers 1 of 8 cases. Students are expected to complete method.
 
