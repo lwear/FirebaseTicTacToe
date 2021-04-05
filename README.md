@@ -83,9 +83,9 @@ numPlayersDB.set(1);
 ## TASK 6: Determine a win, loss, or tie.
 ### Watch and complete Task 6: <https://youtu.be/ri25ktZjZtk> 
  1. Add win/lose/tie code to updateGame
- 2. Write `checkWin()`.
+ 2. Write `checkWin()`. Video only covers 1 of 8 cases. Students are expected to complete method.
 
-## TASK 7: Determine a win, loss, or tie.
+## TASK 7: Deal with state changes.
 ### Watch and complete Task 7: <https://youtu.be/ri25ktZjZtk> 
  1. Modify updateChanges so that:
     b. detect state changes and take non-final actions: if both players are online update bothPlayersOnline
