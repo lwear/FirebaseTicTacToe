@@ -69,7 +69,7 @@ numPlayersDB.set(1);
  3. Inform all users of the change in data and update all the screens.
 
 ## TASK 5: Controlling User Input
-### Watch and complete Task 5: <https://youtu.be/ri25ktZjZtk>
+### Watch and complete Task 5: <https://youtu.be/DXlXyjjjX2c>
  1. Modify playerTakeTurn() so that: 
     - it checks if we are in a state that a turn cannot be taken
     - if it's my turn, let me take it (need to write `isMyTurn()` and `getNumTurns()`).
