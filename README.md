@@ -58,3 +58,9 @@ numPlayersDB.set(1);
 ## TASK 3: Listeners and connecting two players.
 ### Watch and complete Task 3: <https://youtu.be/2JFhsYWVWKo>
 
+## TASK 4: Take a turn and push it to the database.
+### Watch and complete Task 3: <https://youtu.be/2JFhsYWVWKo>
+ 1. Create a representation of the game board in the program and database.
+ 2. When a user clicks the board, savee it to the database.
+ 3. Inform all users of the change in data and update all the screens.
+
