@@ -27,7 +27,7 @@ If you have any questions, issues, or concerns about the code, please create an 
 
 *NOTE #1: A firebase project will only run code in the `project_name/public/` folder. If you would like to change the name, open `project_name/firebase.json` and change the value of the `hosting { public: "public" }` to the name of the folder with your code in it.*
 
-*NOTE #2: The next time you log in to your computer and want to work on the project, you will only have to run "emulators:start" to run start localhost.  You do not need to relogin to firebase, or reconnect your project again.*
+*NOTE #2: The next time you log in to your computer and want to work on the project, go into your project folder and run "C:\Users\lwear\AppData\Roaming\npm\firebase emulators:start" to run start localhost.  You do not need to relogin to firebase, or reconnect your project again.*
 
 ## TASK 2: Create the database, and get your app to access the database.
 ### Demo of Task 2: <https://youtu.be/2JFhsYWVWKo>
