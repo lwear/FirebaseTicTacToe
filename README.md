@@ -36,9 +36,9 @@ Example: firebase deploy --token "$FIREBASE_TOKEN"
   to setup your project. Follow the instructions you're prompted with, first by hitting space on `Realtime Database` and `Hosting: Configure files for Firebase Hosting` to select them for your project. Next select `use existing project` and choose the project you just created. Finish the setup with default answers. Choose NOT to use Github. 
   15.  Now run `firebase emulators:start` This will run your local server. You will need to do this every time you want to view your project.
   Note: You need Java 11 for this to work. The school computers currently have Java 8. Here is the work around:
-    a) Extract the Java 11 zip file onto your H drive in an easy to find location: <https://www.oracle.com/ca-en/java/technologies/javase/jdk11-archive-downloads.html#license-lightbox>
-    b) In the same folder that you saved `firebase-tools-instant-win.exe` create a new text file, name it `java11.bat` and put the following code in it:
-    `
+    - Extract the Java 11 zip file onto your H drive in an easy to find location: <https://www.oracle.com/ca-en/java/technologies/javase/jdk11-archive-downloads.html#license-lightbox>
+   - In the same folder that you saved `firebase-tools-instant-win.exe` create a new text file, name it `java11.bat` and put the following code in it:
+    ```
 @echo off
 echo Setting JAVA_HOME
 set JAVA_HOME=H:\Documents\software\jdk-11.0.17
@@ -46,9 +46,9 @@ echo setting PATH
 set PATH=H:\Documents\software\jdk-11.0.17\bin;%PATH%
 echo Display java version
 java -version
-    `
+    ```
    Be sure to replace `H:\Documents\software\jdk-11.0.17` with the path to your jdk.
-   c) From the  `firebase-tools-instant-win.exe` command line, run the bat file by navigating to the directory containing `java11.bat` and typing in: `java11.bat`. It  will take a few minutes, but will say you have java version 11. This bat file will have to be run everyday until the IT dept updates our java version.
+   - From the  `firebase-tools-instant-win.exe` command line, run the bat file by navigating to the directory containing `java11.bat` and typing in: `java11.bat`. It  will take a few minutes, but will say you have java version 11. This bat file will have to be run everyday until the IT dept updates our java version.
   
   16. If you go to a new browser tab, and type in `http://localhost:5000` you will see the website currently associated with this Firebase project.
   
