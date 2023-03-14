@@ -16,23 +16,40 @@ If you have any questions, issues, or concerns about the code, please create an 
   8. Leave the Firebase website for now.
   
   #### 2023 Set up Instructions
-  9. Download the Window Standalone Binary Firebase CLI <https://firebase.google.com/docs/cli#windows-standalone-binary> and save it on your H drive.
-  10. Run the program. It takes a REALLY LONG TIME to get to a command prompt, but eventually it will. A command prompt looks like this: >
-  11. Run `firebase login:ci`. It will give you a url. Open this url in a browser and login with a Google account.  It will then print something like this:
+  9. Download the Window Standalone Binary Firebase CLI <https://firebase.google.com/docs/cli#windows-standalone-binary> and save `firebase-tools-instant-win.exe` on your H drive in an easy to find location.
+  10. Run the `firebase-tools-instant-win.exe`. It takes a REALLY LONG TIME to get to a command prompt, but eventually it will. A command prompt looks like this: >
+  11. Run `firebase login`. This should open a web browser and let you log in with a google account. IF THIS FAILS: Run `firebase login:ci`. It will give you a url. Open this url in a browser and login with a Google account.  It will then print something like this:
   `+  Success! Use this token to login on a CI server:
 
 1//06NSQx4pMI1g5CgYIARAAGAYSNwF-L9IrPV0PUromk3iwQcyBmcCgiSfFBqI8TXWdDrAgvYWNJafCEdb0ZPwIsz2r2I1hdzOsGAI
 
-Example: firebase deploy --token "$FIREBASE_TOKEN"`
-  12. To see if you are logged in correctly, list your firebase projects. My command looked something like this:
-  `firebase projects:list --token "1//06NSQx4pMI1g5CgYIARAAGAYSNwF-L9IrPV0PUromk3iwQcyBmcCgiSfFBqI8TXWdDrAgvYWNJafCEdb0ZPwIsz2r2I1hdzOsGAI"`
+Example: firebase deploy --token "$FIREBASE_TOKEN" `
+   To see if you are logged in correctly, list your firebase projects. My command looked something like this:
+  `firebase projects:list --token "1//06NSQx4pMI1g5CgYIARAAGAYSNwF-L9IrPV0PUromk3iwQcyBmcCgiSfFBqI8TXWdDrAgvYWNJafCEdb0ZPwIsz2r2I1hdzOsGAI" `
   You should see the project you just created.
-  13. Navigate to your project folder using the change directory command. Mine looks like this:  `cd "H:\Documents\webdev12\myprojectfolder"`
-  14. Now run `firebase init` (with the token)
+  
+  13. Navigate to your project folder using the change directory command. Mine looks like this:  `cd "H:\Documents\webdev12\myprojectfolder" `
+  14. Now run `firebase init` (with the token if needed)
   to setup your project. Follow the instructions you're prompted with, first by hitting space on `Realtime Database` and `Hosting: Configure files for Firebase Hosting` to select them for your project. Next select `use existing project` and choose the project you just created. Finish the setup with default answers. Choose NOT to use Github. 
+  15.  Now run `firebase emulators:start` This will run your local server. You will need to do this every time you want to view your project.
+  Note: You need Java 11 for this to work. The school computers currently have Java 8. Here is the work around:
+    a) Extract the Java 11 zip file onto your H drive in an easy to find location: <https://www.oracle.com/ca-en/java/technologies/javase/jdk11-archive-downloads.html#license-lightbox>
+    b) In the same folder that you saved `firebase-tools-instant-win.exe` create a new text file, name it `java11.bat` and put the following code in it:
+    `
+@echo off
+echo Setting JAVA_HOME
+set JAVA_HOME=H:\Documents\software\jdk-11.0.17
+echo setting PATH
+set PATH=H:\Documents\software\jdk-11.0.17\bin;%PATH%
+echo Display java version
+java -version
+    `
+   Be sure to replace `H:\Documents\software\jdk-11.0.17` with the path to your jdk.
+   c) From the  `firebase-tools-instant-win.exe` command line, run the bat file by navigating to the directory containing `java11.bat` and typing in: `java11.bat`. It  will take a few minutes, but will say you have java version 11. This bat file will have to be run everyday until the IT dept updates our java version.
   
+  16. If you go to a new browser tab, and type in `http://localhost:5000` you will see the website currently associated with this Firebase project.
   
-  9. If not already done, install Node.js: On Windows, download and install [Node.js](https://nodejs.org/en/). 
+<!--  9. If not already done, install Node.js: On Windows, download and install [Node.js](https://nodejs.org/en/). 
   10. If not already done, install the Firebase Command Line Interface (CLI)- run Windows Powershell on your local machine, and install the Firebase CLI using `npm install -g firebase-tools` These instructions are modified from [npm instructions for Windows](https://firebase.google.com/docs/cli#windows-npm).  *You need a full path on the school computers. Mine looks like this: `& "C:\Program Files\nodejs\npm" install -g firebase-tools`
   11. In PowerShell, navigate to your project folder using the change directory command. Mine looks like this:  `cd "H:\Documents\webdev12\myprojectfolder"`
   12. Now run `firebase login` to sign into your Firebase account.  This will open a browser window and allow you to log in via the web. Allow firebase to access everything. *You need a full path on the school computers. Mine looks like this: `& "C:\Users\lwear\AppData\Roaming\npm\firebase" login`*
@@ -40,9 +57,7 @@ Example: firebase deploy --token "$FIREBASE_TOKEN"`
   14. Now run `firebase init` to setup your project. Follow the instructions you're prompted with, first by hitting space on `Database` and `Hosting` to select them for your project. Next select `use existing project` and choose the project you just created. Finish the setup with default answers. Choose NOT to use Github.   *You need a full path on the school computers. Mine looks like this: C:\Users\lwear\AppData\Roaming\npm\firebase init.*
   15. Now run `firebase emulators:start` This will run your local server. You will need to do this every time you want to view your project.  *You need a full path on the school computers. Mine looks like this: C:\Users\lwear\AppData\Roaming\npm\firebase emulators:start.*
   16. If you go to a new browser tab, and type in `http://localhost:5000` you will see the website currently associated with this Firebase project.
-  
- 
-
+ -->
 *NOTE #1: A firebase project will only run code in the `project_name/public/` folder. If you would like to change the name, open `project_name/firebase.json` and change the value of the `hosting { public: "public" }` to the name of the folder with your code in it.*
 
 *NOTE #2: The next time you log in to your computer and want to work on the project, go into your project folder and run "C:\Users\lwear\AppData\Roaming\npm\firebase emulators:start" to start localhost.  You do not need to relogin to firebase, or reconnect your project again.*
