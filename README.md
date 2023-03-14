@@ -38,8 +38,7 @@ Example: firebase deploy --token "$FIREBASE_TOKEN"
   Note: You need Java 11 for this to work. The school computers currently have Java 8. Here is the work around:
    - Extract the Java 11 zip file onto your H drive in an easy to find location: <https://www.oracle.com/ca-en/java/technologies/javase/jdk11-archive-downloads.html#license-lightbox>
    - In the same folder that you saved `firebase-tools-instant-win.exe` create a new text file, name it `java11.bat` and put the following code in it:
-   
-    ```
+```
 @echo off
 echo Setting JAVA_HOME
 set JAVA_HOME=H:\Documents\software\jdk-11.0.17
@@ -47,7 +46,7 @@ echo setting PATH
 set PATH=H:\Documents\software\jdk-11.0.17\bin;%PATH%
 echo Display java version
 java -version
-    ```
+```
    Be sure to replace `H:\Documents\software\jdk-11.0.17` with the path to your jdk.
    - From the  `firebase-tools-instant-win.exe` command line, run the bat file by navigating to the directory containing `java11.bat` and typing in: `java11.bat`. It  will take a few minutes, but will say you have java version 11. This bat file will have to be run everyday until the IT dept updates our java version.
   
