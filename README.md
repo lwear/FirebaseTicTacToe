@@ -14,7 +14,25 @@ If you have any questions, issues, or concerns about the code, please create an 
   6. Add a web app `</>`, give it a name like "TicTacToe", select "Firebase hosting". Click "Register app".
   7. The Firebase site will provice you with some html scripts under the title **Add Firebase SDK**. Ignore it for now. Also ignore Installing the Firebase CLI (you do this in the next step) and you can also ignore the "Deploy to Firebase Hosting". Click "continue to the console".
   8. Leave the Firebase website for now.
-  9. (In 2023, it is installed under C:\Program Files\nodejs). If not already done, install Node.js: On Windows, download and install [Node.js](https://nodejs.org/en/). 
+  
+  ####2023 Set up Instructions
+  9. Download the Window Standalone Binary Firebase CLI <https://firebase.google.com/docs/cli#windows-standalone-binary> and save it on your H drive.
+  10. Run the program. It takes a REALLY LONG TIME to get to a command prompt, but eventually it will. A command prompt looks like this: >
+  11. Run `firebase login:ci`. It will give you a url. Open this url in a browser and login with a Google account.  It will then print something like this:
+  `+  Success! Use this token to login on a CI server:
+
+1//06NSQx4pMI1g5CgYIARAAGAYSNwF-L9IrPV0PUromk3iwQcyBmcCgiSfFBqI8TXWdDrAgvYWNJafCEdb0ZPwIsz2r2I1hdzOsGAI
+
+Example: firebase deploy --token "$FIREBASE_TOKEN"`
+  12. To see if you are logged in correctly, list your firebase projects. My command looked something like this:
+  `firebase projects:list --token "1//06NSQx4pMI1g5CgYIARAAGAYSNwF-L9IrPV0PUromk3iwQcyBmcCgiSfFBqI8TXWdDrAgvYWNJafCEdb0ZPwIsz2r2I1hdzOsGAI"`
+  You should see the project you just created.
+  13. Navigate to your project folder using the change directory command. Mine looks like this:  `cd "H:\Documents\webdev12\myprojectfolder"`
+  14. Now run `firebase init` (with the token)
+  to setup your project. Follow the instructions you're prompted with, first by hitting space on `Realtime Database` and `Hosting: Configure files for Firebase Hosting` to select them for your project. Next select `use existing project` and choose the project you just created. Finish the setup with default answers. Choose NOT to use Github. 
+  
+  
+  9. If not already done, install Node.js: On Windows, download and install [Node.js](https://nodejs.org/en/). 
   10. If not already done, install the Firebase Command Line Interface (CLI)- run Windows Powershell on your local machine, and install the Firebase CLI using `npm install -g firebase-tools` These instructions are modified from [npm instructions for Windows](https://firebase.google.com/docs/cli#windows-npm).  *You need a full path on the school computers. Mine looks like this: `& "C:\Program Files\nodejs\npm" install -g firebase-tools`
   11. In PowerShell, navigate to your project folder using the change directory command. Mine looks like this:  `cd "H:\Documents\webdev12\myprojectfolder"`
   12. Now run `firebase login` to sign into your Firebase account.  This will open a browser window and allow you to log in via the web. Allow firebase to access everything. *You need a full path on the school computers. Mine looks like this: `& "C:\Users\lwear\AppData\Roaming\npm\firebase" login`*
