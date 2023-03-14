@@ -26,9 +26,10 @@ If you have any questions, issues, or concerns about the code, please create an 
 
 Example: firebase deploy --token "$FIREBASE_TOKEN" 
 ```
-   To see if you are logged in correctly, list your firebase projects. My command looked something like this:
+  12. To see if you are logged in correctly, list your firebase projects with  `firebase projects:list`. If you have to use a token it will look something like this:
   `firebase projects:list --token "1//06NSQx4pMI1g5CgYIARAAGAYSNwF-L9IrPV0PUromk3iwQcyBmcCgiSfFBqI8TXWdDrAgvYWNJafCEdb0ZPwIsz2r2I1hdzOsGAI" `
-  You should see the project you just created.
+  
+  Either way, you should see the project you just created.
   
   13. Navigate to your project folder using the change directory command. Mine looks like this:  `cd "H:\Documents\webdev12\myprojectfolder" `
   14. Now run `firebase init` (with the token if needed)
@@ -62,8 +63,12 @@ java -version
  -->
 *NOTE #1: A firebase project will only run code in the `project_name/public/` folder. If you would like to change the name, open `project_name/firebase.json` and change the value of the `hosting { public: "public" }` to the name of the folder with your code in it.*
 
-*NOTE #2: The next time you log in to your computer and want to work on the project, go into your project folder and run "C:\Users\lwear\AppData\Roaming\npm\firebase emulators:start" to start localhost.  You do not need to relogin to firebase, or reconnect your project again.*
+*NOTE #2: The next time you log in to your computer and want to work on the project, go into your project folder and run `firebase-tools-instant-win.exe`, then at the command line, run `firebase emulators:start` to start localhost.  You should not need to relogin to firebase, or reconnect your project again.*
 
+
+<!--
+*NOTE #2: The next time you log in to your computer and want to work on the project, go into your project folder and run "C:\Users\lwear\AppData\Roaming\npm\firebase emulators:start" to start localhost.  You do not need to relogin to firebase, or reconnect your project again.*
+-->
 ## TASK 2: Create the database, and get your app to access the database.
 ### Demo of Task 2: <https://youtu.be/2JFhsYWVWKo>
   1. To get your app to make use of Firebase, at the top of `<head>` in index.html, add the firebase library, and database library with these links 
