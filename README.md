@@ -19,12 +19,13 @@ If you have any questions, issues, or concerns about the code, please create an 
   9. Download the Window Standalone Binary Firebase CLI <https://firebase.google.com/docs/cli#windows-standalone-binary> and save `firebase-tools-instant-win.exe` on your H drive in an easy to find location.
   10. Run the `firebase-tools-instant-win.exe`. It takes a REALLY LONG TIME to get to a command prompt, but eventually it will. A command prompt looks like this: >
   11. Run `firebase login`. This should open a web browser and let you log in with a google account. IF THIS FAILS: Run `firebase login:ci`. It will give you a url. Open this url in a browser and login with a Google account.  It will then print something like this:
-  `
+  ```
   Success! Use this token to login on a CI server:
 
 1//06NSQx4pMI1g5CgYIARAAGAYSNwF-L9IrPV0PUromk3iwQcyBmcCgiSfFBqI8TXWdDrAgvYWNJafCEdb0ZPwIsz2r2I1hdzOsGAI
 
-Example: firebase deploy --token "$FIREBASE_TOKEN" `
+Example: firebase deploy --token "$FIREBASE_TOKEN" 
+```
    To see if you are logged in correctly, list your firebase projects. My command looked something like this:
   `firebase projects:list --token "1//06NSQx4pMI1g5CgYIARAAGAYSNwF-L9IrPV0PUromk3iwQcyBmcCgiSfFBqI8TXWdDrAgvYWNJafCEdb0ZPwIsz2r2I1hdzOsGAI" `
   You should see the project you just created.
