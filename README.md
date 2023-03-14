@@ -15,7 +15,7 @@ If you have any questions, issues, or concerns about the code, please create an 
   7. The Firebase site will provice you with some html scripts under the title **Add Firebase SDK**. Ignore it for now. Also ignore Installing the Firebase CLI (you do this in the next step) and you can also ignore the "Deploy to Firebase Hosting". Click "continue to the console".
   8. Leave the Firebase website for now.
   
-  ####2023 Set up Instructions
+  #### 2023 Set up Instructions
   9. Download the Window Standalone Binary Firebase CLI <https://firebase.google.com/docs/cli#windows-standalone-binary> and save it on your H drive.
   10. Run the program. It takes a REALLY LONG TIME to get to a command prompt, but eventually it will. A command prompt looks like this: >
   11. Run `firebase login:ci`. It will give you a url. Open this url in a browser and login with a Google account.  It will then print something like this:
