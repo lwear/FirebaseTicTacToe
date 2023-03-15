@@ -79,10 +79,10 @@ java -version
   ```
     -->
   1. Refer to STEP 3 of these instructions: <https://firebase.google.com/docs/web/setup> 
-  2. In a browser, go to the [Firebase console of your project](https://console.firebase.google.com/). Choose your project, click the gear for "Project Settings".  Scroll down to "Firebase SDK snippet" and select "CDN". Copy and paste the code from between the &lt;script> and &lt;/script> tags.  Now paste this code into the top of tictactoe.js. This will be unique to each person.
-  3. Go to the *Realtime Database* on the left side of the Firebase console and click "Create Database". Choose "Start in Test Mode" and click "Enable." 
-  4. Manually setup a child in your database by clicking "+" in the white screen under the "Data" tab.   Create `numPlayers` with a default value of 0. 
-  5. To allow the database to be accessed until June 30, 2021, you will need to replace the code in `your_project_folder/database.rules.json
+  2. In a browser, go to the [Firebase console of your project](https://console.firebase.google.com/). Choose your project, click the gear for "Project Settings".  Scroll down to "SDK Setup and Configuration" and select "CDN". Copy and paste the code from between the &lt;script> and &lt;/script> tags.  Now paste this code into the bottom of your body tag. (if you didn't already do so). This will be unique to each person.
+  3. Go to the *Build > Realtime Database* on the left side of the Firebase console.
+  4. Manually setup a child in your database by clicking "+" next to where it currently says "null".   Create the key `numPlayers` with a default value of 0. Click Add. 
+  5. To allow the database to be accessed until June 30, 2023, you will need to replace the code under the tab "Rules" with this:
   ``` 
   {
   "rules": {
@@ -91,6 +91,8 @@ java -version
   }
 }
 ```
+and click "Publish"
+***this is how far I've got updating things***
  6. Copy and paste the following code into tictactoe.js: 
 ```
 const numPlayersDB = firebase.database().ref('numPlayers');
