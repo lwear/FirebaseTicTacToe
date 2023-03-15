@@ -84,8 +84,8 @@ java -version
   ``` 
   {
   "rules": {
-    ".read": "now < 1625094901000",  // epoch time for 2021-06-30 stops allowing use of database after this date
-    ".write": "now < 1625094901000",  // 2021-06-30
+    ".read": "now < 1688151600000",  // epoch time for 2023-06-30 stops allowing use of database after this date
+    ".write": "now < 1688151600000",  // 2023-06-30
   }
 }
 ```
