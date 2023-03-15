@@ -12,7 +12,7 @@ If you have any questions, issues, or concerns about the code, please create an 
   4. Once you have an account, go to the Firebase console <https://console.firebase.google.com/>.
   5. Create a new project, don't enable Google Analytics. Click "Create Project" and when it is done, "Continue".
   6. Add a web app `</>`, give it a name like "TicTacToe", select "Firebase hosting". Click "Register app".
-  7. Under **Add Firebase SDK** select ***Use a script tag***. Copy and paste the code provided into the bottom of your `body` tag.
+  7. Under **Add Firebase SDK** select ***Use a script tag***. Copy and paste the code provided into the top of your js file without the HTML script tag.
   8. Ignore Installing the Firebase CLI (you do this in the next step) and you can also ignore the "Deploy to Firebase Hosting". Click "continue to the console".
   8. Leave the Firebase website for now.
   
@@ -71,15 +71,9 @@ java -version
 *NOTE #2: The next time you log in to your computer and want to work on the project, go into your project folder and run "C:\Users\lwear\AppData\Roaming\npm\firebase emulators:start" to start localhost.  You do not need to relogin to firebase, or reconnect your project again.*
 -->
 ## TASK 2: Create the database, and get your app to access the database.
-### Demo of Task 2: <https://youtu.be/2JFhsYWVWKo>
-<!--  1. To get your app to make use of Firebase, at the top of `<head>` in index.html, add the firebase library, and database library with these links 
-  ```
-    <script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-database.js"></script>
-  ```
-    -->
-  1. Refer to STEP 3 of these instructions: <https://firebase.google.com/docs/web/setup> 
-  2. In a browser, go to the [Firebase console of your project](https://console.firebase.google.com/). Choose your project, click the gear for "Project Settings".  Scroll down to "SDK Setup and Configuration" and select "CDN". Copy and paste the code from between the &lt;script> and &lt;/script> tags.  Now paste this code into the bottom of your body tag. (if you didn't already do so). This will be unique to each person.
+### Demo of Task 2 using the old method: <https://youtu.be/2JFhsYWVWKo>
+  1. Refer to STEP 3 of these instructions: <https://firebase.google.com/docs/web/setup> and for read/write directions go here: <https://firebase.google.com/docs/database/web/read-and-write#web-version-9_1>
+  2. In a browser, go to the [Firebase console of your project](https://console.firebase.google.com/). Choose your project, click the gear for "Project Settings".  Scroll down to "SDK Setup and Configuration" and select "CDN". Copy and paste the code from between the &lt;script> and &lt;/script> tags.  Now paste this code into the top of your JS file. (if you didn't already do so). This will be unique to each person.
   3. Go to the *Build > Realtime Database* on the left side of the Firebase console.
   4. Manually setup a child in your database by clicking "+" next to where it currently says "null".   Create the key `numPlayers` with a default value of 0. Click Add. 
   5. To allow the database to be accessed until June 30, 2023, you will need to replace the code under the tab "Rules" with this:
@@ -92,26 +86,41 @@ java -version
 }
 ```
 and click "Publish"
-***this is how far I've got updating things***
- 6. Copy and paste the following code into tictactoe.js: 
+ 6. Add the NEW code from below to tictactoe.js: 
 ```
-const numPlayersDB = firebase.database().ref('numPlayers');
-numPlayersDB.set(1);
+  // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/9.17.2/firebase-app.js";
+ 
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
+  import { getDatabase, ref, set } from "https://www.gstatic.com/firebasejs/9.17.2/firebase-database.js" // NEW
+
+  // Your web app's Firebase configuration
+  const firebaseConfig = {
+   // this is specific to your project
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const database = getDatabase(app);  // NEW
+  
+  // Set NumPlayers to 1
+  set(ref(database, 'numPlayers'),  1);  //NEW
 ```
- 7. Now load your Tic Tac Toe game in a browser on localhost:5000 and look at the RealTime Database in the Firebase Console, and you should see numPlayers = 1. This means it's working!
+ 7. Now load your Tic Tac Toe game in a browser on localhost:5000, then look at the RealTime Database in the Firebase Console, and you should see numPlayers = 1. This means it's working!
  
 
 ## TASK 3: Listeners and connecting two players.
-### Watch and complete Task 3: <https://youtu.be/vpt9o7O2-5I>
+### Watch and complete Task 3, the video show the old methods: <https://youtu.be/vpt9o7O2-5I>
+
  1. What to do if `firebase emulators:start` throws an error.
- 2. How to write data to the database.
- 3. How to get data from the database.
- 4. How to write listeners for any data change (on) and how to request data only once (once).
+ 2. How to write and read data to the database NEW METHOD: <https://firebase.google.com/docs/database/web/read-and-write#web-version-9_1>.
+ 3. How to write listeners for any data change (on) and how to request data only once (once). NEW METHOD: <https://firebase.google.com/docs/database/web/read-and-write#web-version-9_1>.
  
 ## TASK 4: Take a turn and push it to the database.
 ### Watch and complete Task 4: <https://youtu.be/ri25ktZjZtk>
- 1. Create a representation of the game board in the program and database.
- 2. When a user clicks the board, save it to the database.
+ 1. Create a representation of the game board in the program and database. See <https://firebase.google.com/docs/database/web/structure-data> and lists: <https://firebase.google.com/docs/database/web/lists-of-data>
+ 2. When a user clicks the board, save it to the database. See `push` : <https://firebase.google.com/docs/database/web/read-and-write#web-version-9_1>
  3. Inform all users of the change in data and update all the screens.
 
 ## TASK 5: Controlling User Input
@@ -139,4 +148,5 @@ numPlayersDB.set(1);
 
 ## TASK 8: Turn it into a PWA, and launch it on the Firebase Web Servers.
  1. By now, you should know how to turn a website into a PWA. so go ahead and to it
+ 2. You may want to look at Offline Functionality: <https://firebase.google.com/docs/database/web/offline-capabilities>
  2. Go to <https://firebase.google.com/docs/hosting/test-preview-deploy#deploy-project-directory-to-live> and follow the instructions to deploy your local project to your live firebase channel.  This means firebase will host your app and make it available online at a url like this one: https://tictactoetrial1234.web.app/. 
