@@ -71,12 +71,13 @@ java -version
 -->
 ## TASK 2: Create the database, and get your app to access the database.
 ### Demo of Task 2: <https://youtu.be/2JFhsYWVWKo>
-  1. To get your app to make use of Firebase, at the top of `<head>` in index.html, add the firebase library, and database library with these links 
+<!--  1. To get your app to make use of Firebase, at the top of `<head>` in index.html, add the firebase library, and database library with these links 
   ```
     <script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-database.js"></script>
   ```
-    
+    -->
+  1. Refer to these instructions: <https://firebase.google.com/docs/web/setup>
   2. In a browser, go to the [Firebase console of your project](https://console.firebase.google.com/). Choose your project, click the gear for "Project Settings".  Scroll down to "Firebase SDK snippet" and select "CDN". Copy and paste the code from between the &lt;script> and &lt;/script> tags.  Now paste this code into the top of tictactoe.js. This will be unique to each person.
   3. Go to the *Realtime Database* on the left side of the Firebase console and click "Create Database". Choose "Start in Test Mode" and click "Enable." 
   4. Manually setup a child in your database by clicking "+" in the white screen under the "Data" tab.   Create `numPlayers` with a default value of 0. 
