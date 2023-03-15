@@ -12,7 +12,8 @@ If you have any questions, issues, or concerns about the code, please create an 
   4. Once you have an account, go to the Firebase console <https://console.firebase.google.com/>.
   5. Create a new project, don't enable Google Analytics. Click "Create Project" and when it is done, "Continue".
   6. Add a web app `</>`, give it a name like "TicTacToe", select "Firebase hosting". Click "Register app".
-  7. The Firebase site will provice you with some html scripts under the title **Add Firebase SDK**. Ignore it for now. Also ignore Installing the Firebase CLI (you do this in the next step) and you can also ignore the "Deploy to Firebase Hosting". Click "continue to the console".
+  7. Under **Add Firebase SDK** select ***Use a script tag***. Copy and paste the code provided into the bottom of your `body` tag.
+  8. Ignore Installing the Firebase CLI (you do this in the next step) and you can also ignore the "Deploy to Firebase Hosting". Click "continue to the console".
   8. Leave the Firebase website for now.
   
   #### 2023 Set up Instructions
