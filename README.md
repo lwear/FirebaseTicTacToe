@@ -36,7 +36,7 @@ Example: firebase deploy --token "$FIREBASE_TOKEN"
   to setup your project. Follow the instructions you're prompted with, first by hitting space on `Realtime Database` and `Hosting: Configure files for Firebase Hosting` to select them for your project. Next select `use existing project` and choose the project you just created. Finish the setup with default answers. Choose NOT to use Github. 
   15.  Now run `firebase emulators:start` This will run your local server. You will need to do this every time you want to view your project.
   Note: You need Java 11 for this to work. The school computers currently have Java 8. Here is the work around:
-   - Extract the Java 11 zip file onto your H drive in an easy to find location: <ftp://mdinfotech.net/downloads/jdk-11.0.17_windows-x64_bin.zip>
+   - Extract the Java 11 zip file onto your H drive in an easy to find location: <a href="http://mdinfotech.net/downloads/jdk-11.0.17_windows-x64_bin.zip" download>Java 11 Zip</a>
    - In the same folder that you saved `firebase-tools-instant-win.exe` create a new text file, name it `java11.bat` and put the following code in it:
 ```
 @echo off
