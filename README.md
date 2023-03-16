@@ -85,7 +85,8 @@ java -version
   }
 }
 ```
-and click "Publish"
+and click "Publish".
+
  6. Add the NEW code from below to tictactoe.js: 
 ```
   // Import the functions you need from the SDKs you need
@@ -122,6 +123,15 @@ and click "Publish"
  1. Create a representation of the game board in the program and database. See <https://firebase.google.com/docs/database/web/structure-data> and lists: <https://firebase.google.com/docs/database/web/lists-of-data>
  2. When a user clicks the board, save it to the database. See `push` : <https://firebase.google.com/docs/database/web/read-and-write#web-version-9_1>
  3. Inform all users of the change in data and update all the screens.
+ 4. ***Things that have changed since the video was recorded****
+ To get function calls to work with modules, change:
+ ```
+ function playerTakeTurn(e) {...}
+ ```
+ to
+ ```
+ window.playerTakeTurn(e) = function (e) {...}
+ ```
 
 ## TASK 5: Controlling User Input
 ### Watch and complete Task 5: <https://youtu.be/DXlXyjjjX2c>
