@@ -124,7 +124,8 @@ and click "Publish".
  2. When a user clicks the board, save it to the database. See `push` : <https://firebase.google.com/docs/database/web/read-and-write#web-version-9_1>
  3. Inform all users of the change in data and update all the screens.
  4. ***Things that have changed since the video was recorded****
- To get function calls to work with modules, change:
+ 
+ a. To get function calls to work with modules, change:
  ```
  function playerTakeTurn(e) {...}
  ```
