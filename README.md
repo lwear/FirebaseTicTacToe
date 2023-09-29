@@ -18,7 +18,7 @@ If you have any questions, issues, or concerns about the code, please create an 
   
   #### 2023 Set up Instructions
   9. Download the Window Standalone Binary Firebase CLI <https://firebase.google.com/docs/cli#windows-standalone-binary> and save `firebase-tools-instant-win.exe` on your H drive in an easy to find location.
-  10. Run the `firebase-tools-instant-win.exe`. It takes a REALLY LONG TIME to get to a command prompt, but eventually it will. A command prompt looks like this: >
+  10. From your project folder, and make sure you have an `H:\` path, not a `\\s49fs\` path, run the `firebase-tools-instant-win.exe`. It takes a REALLY LONG TIME to get to a command prompt, but eventually it will. A command prompt looks like this: >
   11. Run `firebase login`. This should open a web browser and let you log in with a google account. IF THIS FAILS: Run `firebase login:ci`. It will give you a url. Open this url in a browser and login with a Google account.  It will then print something like this:
   ```
   Success! Use this token to login on a CI server:
