@@ -5,7 +5,8 @@
 If you have any questions, issues, or concerns about the code, please create an issue [here](https://github.com/lwear/FirebaseTicTacToe/issues/new).
 
 ## TASK 1: Run a Firebase Project on your local machine (using a server).
-### Demo of task 1: <https://youtu.be/n9CmOiX7M5E>
+#### Demo of task 1: <https://youtu.be/n9CmOiX7M5E>
+##### Steps confirmed Sept 2023.
   1. Download the base code for this project. 
   2. Store the code on your local machine in a folder. This folder will now be referred to as your "project folder."
   3. Go to <https://firebase.google.com/> and setup your account.
@@ -14,7 +15,7 @@ If you have any questions, issues, or concerns about the code, please create an 
   6. Add a web app `</>`, give it a name like "TicTacToe", select "Firebase hosting". Click "Register app".
   7. Under **Add Firebase SDK** select ***Use a script tag***. Copy and paste the code provided into the top of your js file without the HTML script tag.
   8. Ignore Installing the Firebase CLI (you do this in the next step) and you can also ignore the "Deploy to Firebase Hosting". Click "continue to the console".
-  8. Leave the Firebase website for now.
+  8. Leave the Firebase website for now. Also stop watching the video at this point.
   
   #### 2023 Set up Instructions
   9. Download the Window Standalone Binary Firebase CLI <https://firebase.google.com/docs/cli#windows-standalone-binary> and save `firebase-tools-instant-win.exe` on your H drive in an easy to find location.
