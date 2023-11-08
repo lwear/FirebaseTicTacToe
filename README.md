@@ -80,12 +80,13 @@ java -version
   2. In a browser, go to the [Firebase console of your project](https://console.firebase.google.com/). Choose your project, click the gear for "Project Settings".  Scroll down to "SDK Setup and Configuration" and select "CDN". Copy and paste the code from between the &lt;script> and &lt;/script> tags.  Now paste this code into the top of your JS file. (if you didn't already do so). This will be unique to each person.
   3. Go to the *Build > Realtime Database* on the left side of the Firebase console.
   4. Manually setup a child in your database by clicking "+" next to where it currently says "null".   Create the key `numPlayers` with a default value of 0. Click Add. 
-  5. To allow the database to be accessed until June 30, 2023, you will need to replace the code under the tab "Rules" with this:
+  5. To allow the database to be accessed until June 30, 2023, you will need to replace the code under the tab "Rules" with the code below. Please update the date to be two months into the future from NOW.  Do this using an [epoch time converter](https://www.epochconverter.com/).
   ``` 
   {
   "rules": {
     ".read": "now < 1688151600000",  // epoch time for 2023-06-30 stops allowing use of database after this date
-    ".write": "now < 1688151600000",  // 2023-06-30
+                                      // you need to update this to reflect a time two months into the future
+    ".write": "now < 1688151600000",  // 2023-06-30, CHANGE THIS
   }
 }
 ```
@@ -94,10 +95,12 @@ and click "Publish".
  6. Add the NEW code from below to tictactoe.js: 
 ```
   // Import the functions you need from the SDKs you need
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/9.17.2/firebase-app.js";
+  // 9.17.2 needs to be updated to the current version
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/9.17.2/firebase-app.js"; 
  
   // TODO: Add SDKs for Firebase products that you want to use
   // https://firebase.google.com/docs/web/setup#available-libraries
+  // 9.17.2 needs to be updated to the current version
   import { getDatabase, ref, set } from "https://www.gstatic.com/firebasejs/9.17.2/firebase-database.js" // NEW
 
   // Your web app's Firebase configuration
@@ -118,9 +121,8 @@ and click "Publish".
 ## TASK 3: Listeners and connecting two players.
 ### Watch and complete Task 3, the video show the old methods: <https://youtu.be/vpt9o7O2-5I>
 
- 1. What to do if `firebase emulators:start` throws an error.
- 2. How to write and read data to the database NEW METHOD: <https://firebase.google.com/docs/database/web/read-and-write#web-version-9_1>.
- 3. How to write listeners for any data change (on) and how to request data only once (once). NEW METHOD: <https://firebase.google.com/docs/database/web/read-and-write#web-version-9_1>.
+ 1. How to write and read data to the database NEW METHOD: <https://firebase.google.com/docs/database/web/read-and-write#web-version-9_1>.
+ 2. How to write listeners for any data change (on) and how to request data only once (once). NEW METHOD: <https://firebase.google.com/docs/database/web/read-and-write#web-version-9_1>.
  
 ## TASK 4: Take a turn and push it to the database.
 ### Watch and complete Task 4: <https://youtu.be/ri25ktZjZtk>
