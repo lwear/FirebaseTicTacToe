@@ -4,10 +4,9 @@
 
 If you have any questions, issues, or concerns about the code, please create an issue [here](https://github.com/lwear/FirebaseTicTacToe/issues/new).
 
-## Step-by-Step Guide to Integrating Firebase with Glitch
+## Integrating Firebase with Glitch
 
-## Ms. Wear’s Working Example
-[Firebase on Glitch Example](https://firebase-on-glitch-example.glitch.me/) (available until Firebase trial ends)
+
 
 ## Step 1: Set Up a Firebase Project
 
@@ -118,7 +117,8 @@ onValue(gameRef, (snapshot) => {
    * Now, manually change the `"turn"` field to `"player2"` (instead of `"player1"`).  
    * Go back to your web app, and in the JavaScript console, you will see new output showing the change in data.
 
-   
+  ## Ms. Wear’s Working Example
+[Firebase on Glitch Example](https://firebase-on-glitch-example.glitch.me/) (available until Firebase trial ends) 
 
 
 
