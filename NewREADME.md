@@ -57,7 +57,7 @@ const app = initializeApp(firebaseConfig);
   ```html
   <script type="module" src="/script.js" defer></script>
   ```
-
+    * Note: You may notice `type=module` is used in the `script` tag.  Modules in JS are a newer way of organizing multiple js files to make code more maintainable.  I use it here because most of the firebase documentation also uses it. Using modules does affect the syntax you use. For example, having to assign `window.playerTakeTurn = playerTakeTurn;` in the javascript for TicTacToe to make `playerTakeTurn` callable from the HTML document.  To find out more about modules, read [JavaScript Modules Explained](https://www.turing.com/kb/javascript-modules).
 ### **Step 4: Set Up Firebase Realtime Database in Glitch**
 
 1. **Create Database Rules**:  
