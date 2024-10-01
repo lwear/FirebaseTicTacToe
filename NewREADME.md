@@ -51,12 +51,12 @@ const app = initializeApp(firebaseConfig);
 ### **Step 3: Add Firebase SDK to Glitch**
 
 1. **Add Firebase SDK and Initialize Firebase**:  
+   * Open the `script.js` (or the main JS file where the game will run).  
+   * Copy the code snippet from Step 1 into the top of your JavaScript file, before you use any Firebase services.
    * Open `index.html` and replace the `<script>` tag with this one:  
   ```html
   <script type="module" src="/script.js" defer></script>
   ```
-   * Open the `script.js` (or the main JS file where the game will run).  
-   * Copy the code snippet from Step 1 into the top of your JavaScript file, before you use any Firebase services.
 
 ### **Step 4: Set Up Firebase Realtime Database in Glitch**
 
