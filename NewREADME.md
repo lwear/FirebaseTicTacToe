@@ -63,7 +63,7 @@ const app = initializeApp(firebaseConfig);
 1. **Create Database Rules**:  
    * In the Firebase console, go to **Build \> Realtime Database**.  
    * Click **Create Database** and choose the location (make it public for testing, but you can add authentication later).
-   * To allow the database to be accessed until another date, update the date to two months into the future using an [epoch time converter]
+   * To allow the database to be accessed until another date, update the date to two months into the future using an [epoch time converter](https://www.epochconverter.com/).  
 
 Set your Database Rules for public read/write during development using this JSON:  
 ```json
@@ -74,7 +74,7 @@ Set your Database Rules for public read/write during development using this JSON
   }
 }
 ```
-(https://www.epochconverter.com/).  
+
 2. **Write/Read Data to/from Firebase**:  
    * You’ll now use Firebase's JavaScript API to save and retrieve game state. For example, here’s how to save the state of a Tic-Tac-Toe board and listen for changes:
 
