@@ -53,11 +53,12 @@ const app = initializeApp(firebaseConfig);
 1. **Add Firebase SDK and Initialize Firebase**:  
    * Open the `script.js` (or the main JS file where the game will run).  
    * Copy the code snippet from Step 1 into the top of your JavaScript file, before you use any Firebase services.
-   * Open `index.html` and replace the `<script>` tag with this one:  
+   * Open `index.html` and replace the `<script>` tag with this one:
+   * Note: You may notice `type=module` is used in the `script` tag.  Modules in JS are a newer way of organizing multiple js files to make code more maintainable.  I use it here because most of the firebase documentation also uses it. Using modules does affect the syntax you use. For example, having to assign `window.playerTakeTurn = playerTakeTurn;` in the javascript for TicTacToe to make `playerTakeTurn` callable from the HTML document.  To find out more about modules, read [JavaScript Modules Explained](https://www.turing.com/kb/javascript-modules).
   ```html
   <script type="module" src="/script.js" defer></script>
   ```
-    * Note: You may notice `type=module` is used in the `script` tag.  Modules in JS are a newer way of organizing multiple js files to make code more maintainable.  I use it here because most of the firebase documentation also uses it. Using modules does affect the syntax you use. For example, having to assign `window.playerTakeTurn = playerTakeTurn;` in the javascript for TicTacToe to make `playerTakeTurn` callable from the HTML document.  To find out more about modules, read [JavaScript Modules Explained](https://www.turing.com/kb/javascript-modules).
+    
 ### **Step 4: Set Up Firebase Realtime Database in Glitch**
 
 1. **Create Database Rules**:  
