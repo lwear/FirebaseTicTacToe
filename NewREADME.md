@@ -4,7 +4,7 @@
 
 If you have any questions, issues, or concerns about the code, please create an issue [here](https://github.com/lwear/FirebaseTicTacToe/issues/new).
 
-## Integrating Firebase with Glitch
+## Integrate Firebase with Glitch
 
 
 
@@ -52,7 +52,6 @@ const app = initializeApp(firebaseConfig);
 
 1. **Add Firebase SDK and Initialize Firebase**:  
    * Open `index.html` and replace the `<script>` tag with this one:  
-  html (Copy code)
   ```html
   <script type="module" src="/script.js" defer></script>
   ```
@@ -66,7 +65,6 @@ const app = initializeApp(firebaseConfig);
    * Click **Create Database** and choose the location (make it public for testing, but you can add authentication later).
 
 Set your Database Rules for public read/write during development using this JSON:  
-Json (Copy code)  
 ```json
 {
   "rules": {
@@ -81,8 +79,6 @@ Json (Copy code)
    * You’ll now use Firebase's JavaScript API to save and retrieve game state. For example, here’s how to save the state of a Tic-Tac-Toe board and listen for changes:
 
 **Example JavaScript:**  
-javascript  (`Copy code`)
-
 ```javascript
 // Add this import near the top of your js file
 import {
@@ -119,17 +115,17 @@ onValue(gameRef, (snapshot) => {
 [Firebase on Glitch Example](https://firebase-on-glitch-example.glitch.me/) (available until Firebase trial ends) 
 
 
+## Write Interactive Tic Tac Toe
+## **Step 1: Connect Two Players to the Game**
+   1. Download the code base from [this github project](https://github.com/lwear/FirebaseTicTacToe).
+   2. Add the code to your Glitch project created in the previous steps.
+   3. Ensure the it runs on Glitch and validates before you continue.
+   4. Add a `numplayers` value to the database to store the number of players that have joined the game.
+   5. Enable the game to detect the number of players in the game and add all the functionality shown in this video (note:it uses the old methods to read/write data, you are expected to use the new methods) <https://youtu.be/vpt9o7O2-5I>. Note: all reads/writes in videos use an old method. Use the method from [this documentation](https://firebase.google.com/docs/database/web/read-and-write#web-version-9_1) to do all modern read/writes.
+   6. 
 
-
-
-
-
-## TASK 3: Reading and Writing to the Database
-
- 1. How to write data to and read data from (on value change or only once) the database: <https://firebase.google.com/docs/database/web/read-and-write#web-version-9_1>.
- 
-## TASK 5: Controlling User Input
-### Watch and complete Task 5: <https://youtu.be/DXlXyjjjX2c>
+## **Step 2: Controlling User Input**
+### Watch and complete **Controlling User Input**: <https://youtu.be/DXlXyjjjX2c>
 #### Note: all reads/writes in videos use an old method. Use the method from [this documentation](https://firebase.google.com/docs/database/web/read-and-write#web-version-9_1) to do all modern read/writes.
  1. Modify `playerTakeTurn()` so that: 
     - it checks if we are in a state that a turn cannot be taken
@@ -141,18 +137,18 @@ onValue(gameRef, (snapshot) => {
     - if the lightbox is visible, do nothing
     - if it's a turn, `setmessage` instructions for the user
   
-## TASK 6: Determine a win, loss, or tie.
-### Watch and complete Task 6: <https://youtu.be/AvrXMdKxMyw> 
+## **Step 3: Determine a win, loss, or tie.**
+### Watch and complete Detect Win, Loss, or Tie: <https://youtu.be/AvrXMdKxMyw> 
 #### Note: all reads/writes in videos use an old method. Use the method from [this documentation](https://firebase.google.com/docs/database/web/read-and-write#web-version-9_1) to do all modern read/writes.
  1. Add win/lose/tie code to updateGame
  2. Write `checkWin()`. Video only covers 1 of 8 cases. Students are expected to complete method.
 
-## TASK 7: Deal with state changes in number of players.
-### Watch and complete Task 7: <https://youtu.be/joHpUGe-RA4> 
+## **Step 4: Deal with state changes in number of players.**
+### Watch and complete Dealing with Changes of State in NumPlayers: <https://youtu.be/joHpUGe-RA4> 
 #### Note: all reads/writes in videos use an old method. Use the method from [this documentation](https://firebase.google.com/docs/database/web/read-and-write#web-version-9_1) to do all modern read/writes.
  1. Modify `updateGame()` so that:
     - detect state changes and take non-final actions: if both players are online update bothPlayersOnline
     - detect state changes and take final actions: both players online and someone disconnects, only one player, gameBoard is null.
-
-## TASK 8: Turn it into a PWA, and launch it on the Firebase Web Servers.
+      
+## **Step 5: Turn it into a PWA, and launch it on the Firebase Web Servers.**
  1. By now, you should know how to turn a website into a PWA. so go ahead and to it
