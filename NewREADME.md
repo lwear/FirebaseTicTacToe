@@ -4,7 +4,43 @@
 
 If you have any questions, issues, or concerns about the code, please create an issue [here](https://github.com/lwear/FirebaseTicTacToe/issues/new).
 
+# Step-by-Step Guide to Integrating Firebase with Glitch
 
+## Ms. Wear’s Working Example
+[Firebase on Glitch Example](https://firebase-on-glitch-example.glitch.me/) (available until Firebase trial ends)
+
+## Step 1: Set Up a Firebase Project
+
+1. **Go to Firebase Console**: [Visit Firebase Console](https://console.firebase.google.com/).
+2. **Create a New Project**:
+   - Click **Add Project**.
+   - Name your project and follow the steps to create it (keep Google Analytics off for simplicity).
+3. **Add a Web App**:
+   - In the Firebase console, go to **Project Settings** and select **Add App > Web App**.
+   - Register your app. Firebase will give you a code snippet containing your app's Firebase configuration (API keys, project ID, etc.). Under "Add Firebase SDK," select **Use `<script>` tag**.
+   - Keep this snippet handy—you will need it for Glitch.
+
+### Example Firebase Configuration:
+
+```javascript
+// Import the functions you need from the SDKs you need
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.2/firebase-app.js";
+
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+// Your web app's Firebase configuration
+const firebaseConfig = {
+  apiKey: "AIzaSyAp3CGFgoaNxQ24kkTBplhwpOhVKJGoxNo",
+  authDomain: "tictactoe2024-71b13.firebaseapp.com",
+  projectId: "tictactoe2024-71b13",
+  storageBucket: "tictactoe2024-71b13.appspot.com",
+  messagingSenderId: "80518267625",
+  appId: "1:80518267625:web:d73ee6e3b1fe4a401d6678"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+```
 ## TASK 3: Reading and Writing to the Database
 
  1. How to write data to and read data from (on value change or only once) the database: <https://firebase.google.com/docs/database/web/read-and-write#web-version-9_1>.
