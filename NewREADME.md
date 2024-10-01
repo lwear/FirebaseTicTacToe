@@ -124,7 +124,7 @@ onValue(gameRef, (snapshot) => {
    3. Ensure the it runs on Glitch and validates before you continue.
    4. Add a `numplayers` value to the database to store the number of players that have joined the game.
    5. Enable the game to detect the number of players in the game and add all the functionality shown in this video (note:it uses the old methods to read/write data, you are expected to use the new methods) <https://youtu.be/vpt9o7O2-5I>. Note: all reads/writes in videos use an old method. Use the method from [this documentation](https://firebase.google.com/docs/database/web/read-and-write#web-version-9_1) to do all modern read/writes.
-   6. 
+
 
 ### **Step 2: Controlling User Input**
 #### Watch and complete **Controlling User Input**: <https://youtu.be/DXlXyjjjX2c>
