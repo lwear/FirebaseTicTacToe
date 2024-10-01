@@ -19,7 +19,7 @@ If you have any questions, issues, or concerns about the code, please create an 
    - Register your app. Firebase will give you a code snippet containing your app's Firebase configuration (API keys, project ID, etc.). Under "Add Firebase SDK," select **Use `<script>` tag**.
    - Keep this snippet handy—you will need it for Glitch.
 
-### Example Firebase Configuration:
+**Example Firebase Configuration:**
 
 ```javascript
 // Import the functions you need from the SDKs you need
@@ -40,7 +40,7 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 ```
-## **Step 2: Create a New Project in Glitch**
+### **Step 2: Create a New Project in Glitch**
 
 1. **Go to Glitch**: [Visit Glitch](https://glitch.com/).  
 2. **Create a New Project**:  
@@ -48,7 +48,7 @@ const app = initializeApp(firebaseConfig);
 3. **Edit Your Project**:  
    * Open the project and you’ll see the files editor. You will add Firebase configuration and integrate Firebase SDK in the project here.
 
-## **Step 3: Add Firebase SDK to Glitch**
+### **Step 3: Add Firebase SDK to Glitch**
 
 1. **Add Firebase SDK and Initialize Firebase**:  
    * Open `index.html` and replace the `<script>` tag with this one:  
@@ -58,7 +58,7 @@ const app = initializeApp(firebaseConfig);
    * Open the `script.js` (or the main JS file where the game will run).  
    * Copy the code snippet from Step 1 into the top of your JavaScript file, before you use any Firebase services.
 
-## **Step 4: Set Up Firebase Realtime Database in Glitch**
+### **Step 4: Set Up Firebase Realtime Database in Glitch**
 
 1. **Create Database Rules**:  
    * In the Firebase console, go to **Build \> Realtime Database**.  
@@ -111,12 +111,12 @@ onValue(gameRef, (snapshot) => {
    * Now, manually change the `"turn"` field to `"player2"` (instead of `"player1"`).  
    * Go back to your web app, and in the JavaScript console, you will see new output showing the change in data.
 
-  ## Ms. Wear’s Working Example
+  ### Ms. Wear’s Working Example
 [Firebase on Glitch Example](https://firebase-on-glitch-example.glitch.me/) (available until Firebase trial ends) 
 
 
 ## Write Interactive Tic Tac Toe
-## **Step 1: Connect Two Players to the Game**
+### **Step 1: Connect Two Players to the Game**
    1. Download the code base from [this github project](https://github.com/lwear/FirebaseTicTacToe).
    2. Add the code to your Glitch project created in the previous steps.
    3. Ensure the it runs on Glitch and validates before you continue.
@@ -124,9 +124,9 @@ onValue(gameRef, (snapshot) => {
    5. Enable the game to detect the number of players in the game and add all the functionality shown in this video (note:it uses the old methods to read/write data, you are expected to use the new methods) <https://youtu.be/vpt9o7O2-5I>. Note: all reads/writes in videos use an old method. Use the method from [this documentation](https://firebase.google.com/docs/database/web/read-and-write#web-version-9_1) to do all modern read/writes.
    6. 
 
-## **Step 2: Controlling User Input**
-### Watch and complete **Controlling User Input**: <https://youtu.be/DXlXyjjjX2c>
-#### Note: all reads/writes in videos use an old method. Use the method from [this documentation](https://firebase.google.com/docs/database/web/read-and-write#web-version-9_1) to do all modern read/writes.
+### **Step 2: Controlling User Input**
+#### Watch and complete **Controlling User Input**: <https://youtu.be/DXlXyjjjX2c>
+##### Note: all reads/writes in videos use an old method. Use the method from [this documentation](https://firebase.google.com/docs/database/web/read-and-write#web-version-9_1) to do all modern read/writes.
  1. Modify `playerTakeTurn()` so that: 
     - it checks if we are in a state that a turn cannot be taken
     - if it's my turn, let me take it (need to write `isMyTurn()` and `getNumTurns()`).
@@ -137,18 +137,18 @@ onValue(gameRef, (snapshot) => {
     - if the lightbox is visible, do nothing
     - if it's a turn, `setmessage` instructions for the user
   
-## **Step 3: Determine a win, loss, or tie.**
-### Watch and complete Detect Win, Loss, or Tie: <https://youtu.be/AvrXMdKxMyw> 
-#### Note: all reads/writes in videos use an old method. Use the method from [this documentation](https://firebase.google.com/docs/database/web/read-and-write#web-version-9_1) to do all modern read/writes.
+### **Step 3: Determine a win, loss, or tie.**
+#### Watch and complete Detect Win, Loss, or Tie: <https://youtu.be/AvrXMdKxMyw> 
+##### Note: all reads/writes in videos use an old method. Use the method from [this documentation](https://firebase.google.com/docs/database/web/read-and-write#web-version-9_1) to do all modern read/writes.
  1. Add win/lose/tie code to updateGame
  2. Write `checkWin()`. Video only covers 1 of 8 cases. Students are expected to complete method.
 
-## **Step 4: Deal with state changes in number of players.**
-### Watch and complete Dealing with Changes of State in NumPlayers: <https://youtu.be/joHpUGe-RA4> 
-#### Note: all reads/writes in videos use an old method. Use the method from [this documentation](https://firebase.google.com/docs/database/web/read-and-write#web-version-9_1) to do all modern read/writes.
+### **Step 4: Deal with state changes in number of players.**
+#### Watch and complete Dealing with Changes of State in NumPlayers: <https://youtu.be/joHpUGe-RA4> 
+##### Note: all reads/writes in videos use an old method. Use the method from [this documentation](https://firebase.google.com/docs/database/web/read-and-write#web-version-9_1) to do all modern read/writes.
  1. Modify `updateGame()` so that:
     - detect state changes and take non-final actions: if both players are online update bothPlayersOnline
     - detect state changes and take final actions: both players online and someone disconnects, only one player, gameBoard is null.
       
-## **Step 5: Turn it into a PWA, and launch it on the Firebase Web Servers.**
+### **Step 5: Turn it into a PWA, and launch it on the Firebase Web Servers.**
  1. By now, you should know how to turn a website into a PWA. so go ahead and to it
