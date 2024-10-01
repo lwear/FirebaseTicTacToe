@@ -41,6 +41,91 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 ```
+## **Step 2: Create a New Project in Glitch**
+
+1. **Go to Glitch**: [Visit Glitch](https://glitch.com/).  
+2. **Create a New Project**:  
+   * Choose **New Project \> glitch-hello-website**.  
+3. **Edit Your Project**:  
+   * Open the project and you’ll see the files editor. You will add Firebase configuration and integrate Firebase SDK in the project here.
+
+   ## **Step 3: Add Firebase SDK to Glitch**
+
+1. **Add Firebase SDK and Initialize Firebase**:  
+* Open `index.html` and replace the `<script>` tag with this one:  
+  html  
+  Copy code  
+  ```html
+  <script type="module" src="/script.js" defer></script>
+  ```
+  * Open the `script.js` (or the main JS file where the game will run).  
+  * Copy the code snippet from Step 1 into the top of your JavaScript file, before you use any Firebase services.
+
+  ## **Step 4: Set Up Firebase Realtime Database in Glitch**
+
+1. **Create Database Rules**:  
+   * In the Firebase console, go to **Build \> Realtime Database**.  
+   * Click **Create Database** and choose the location (make it public for testing, but you can add authentication later).
+
+Set your Database Rules for public read/write during development using this JSON:  
+Json (Copy code)  
+```json
+{
+  "rules": {
+    ".read": "now < 1730185200000",  // 2024-10-29
+    ".write": "now < 1730185200000"  // 2024-10-29
+  }
+}
+
+```
+
+* To allow the database to be accessed until another date, update the date to two months into the future using an [epoch time converter](https://www.epochconverter.com/).  
+2. **Write/Read Data to/from Firebase**:  
+   * You’ll now use Firebase's JavaScript API to save and retrieve game state. For example, here’s how to save the state of a Tic-Tac-Toe board and listen for changes:
+
+**Example JavaScript:**  
+javascript  (`Copy code`)
+
+```javascript
+// Add this import near the top of your js file
+import {
+  getDatabase,
+  ref,
+  set,
+  onValue
+} from "https://www.gstatic.com/firebasejs/10.13.2/firebase-database.js";
+
+// Example: Save current game state to Firebase
+const gameState = ["X", "O", "", "", "X", "", "O", "", ""];
+set(ref(database, "games/game1"), {
+  board: gameState,
+  turn: "player1"
+});
+
+// Listen for changes in game state
+const gameRef = ref(database, "games/game1");
+onValue(gameRef, (snapshot) => {
+  const data = snapshot.val();
+  console.log("Game State:", data);
+});
+
+```
+
+3. This will store the game’s state in the Realtime Database, and both players can sync the game board live.  
+4. **Test Your App**:  
+   * Run the web app in Chrome with the console open, and you should see the Game State printed in the console.  
+   * Check out the data on Firebase by going to **Build \> Realtime Database** in the Firebase Console. You should see your data in the database\!  
+   * Now, manually change the `"turn"` field to `"player2"` (instead of `"player1"`).  
+   * Go back to your web app, and in the JavaScript console, you will see new output showing the change in data.
+
+   
+
+
+
+
+
+
+
 ## TASK 3: Reading and Writing to the Database
 
  1. How to write data to and read data from (on value change or only once) the database: <https://firebase.google.com/docs/database/web/read-and-write#web-version-9_1>.
