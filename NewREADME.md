@@ -8,7 +8,7 @@ If you have any questions, issues, or concerns about the code, please create an 
 
 
 
-## Step 1: Set Up a Firebase Project
+### Step 1: Set Up a Firebase Project
 
 1. **Go to Firebase Console**: [Visit Firebase Console](https://console.firebase.google.com/).
 2. **Create a New Project**:
