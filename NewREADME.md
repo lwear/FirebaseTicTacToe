@@ -1,10 +1,10 @@
-## Welcome to the Multiplayer Tic Tac Toe Project! 
+# Welcome to the Multiplayer Tic Tac Toe Project! 
 
 #### Watch this video to see what the project is going to look like: <https://youtu.be/Q34AhRnuIIo> 
 
 If you have any questions, issues, or concerns about the code, please create an issue [here](https://github.com/lwear/FirebaseTicTacToe/issues/new).
 
-# Step-by-Step Guide to Integrating Firebase with Glitch
+## Step-by-Step Guide to Integrating Firebase with Glitch
 
 ## Ms. Wear’s Working Example
 [Firebase on Glitch Example](https://firebase-on-glitch-example.glitch.me/) (available until Firebase trial ends)
