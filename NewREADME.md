@@ -48,19 +48,18 @@ const app = initializeApp(firebaseConfig);
 3. **Edit Your Project**:  
    * Open the project and you’ll see the files editor. You will add Firebase configuration and integrate Firebase SDK in the project here.
 
-   ## **Step 3: Add Firebase SDK to Glitch**
+## **Step 3: Add Firebase SDK to Glitch**
 
 1. **Add Firebase SDK and Initialize Firebase**:  
-* Open `index.html` and replace the `<script>` tag with this one:  
-  html  
-  Copy code  
+   * Open `index.html` and replace the `<script>` tag with this one:  
+  html (Copy code)
   ```html
   <script type="module" src="/script.js" defer></script>
   ```
-  * Open the `script.js` (or the main JS file where the game will run).  
-  * Copy the code snippet from Step 1 into the top of your JavaScript file, before you use any Firebase services.
+   * Open the `script.js` (or the main JS file where the game will run).  
+   * Copy the code snippet from Step 1 into the top of your JavaScript file, before you use any Firebase services.
 
-  ## **Step 4: Set Up Firebase Realtime Database in Glitch**
+## **Step 4: Set Up Firebase Realtime Database in Glitch**
 
 1. **Create Database Rules**:  
    * In the Firebase console, go to **Build \> Realtime Database**.  
@@ -77,7 +76,6 @@ Json (Copy code)
 }
 
 ```
-
 * To allow the database to be accessed until another date, update the date to two months into the future using an [epoch time converter](https://www.epochconverter.com/).  
 2. **Write/Read Data to/from Firebase**:  
    * You’ll now use Firebase's JavaScript API to save and retrieve game state. For example, here’s how to save the state of a Tic-Tac-Toe board and listen for changes:
