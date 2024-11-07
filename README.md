@@ -158,4 +158,4 @@ onValue(gameRef, (snapshot) => {
  5. Validate HTML and CSS, no JS errors.
 
 ### Evaluation
-1. See [Evaluation Rubric] (https://docs.google.com/document/d/1jjdrUIWAZcEaCODYzMZrD5FGWm9X02kN-ZDSrwBGDTc/edit?usp=sharing).
+1. See [Evaluation Rubric](https://docs.google.com/document/d/1jjdrUIWAZcEaCODYzMZrD5FGWm9X02kN-ZDSrwBGDTc/edit?usp=sharing).
