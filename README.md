@@ -142,7 +142,7 @@ onValue(gameRef, (snapshot) => {
 ### **Step 3: Determine a win, loss, or tie.**
 #### Watch and complete Detect Win, Loss, or Tie: <https://youtu.be/AvrXMdKxMyw> 
 ##### Note: all reads/writes in videos use an old method. Use the method from [this documentation](https://firebase.google.com/docs/database/web/read-and-write#web-version-9_1) to do all modern read/writes.
- 1. Add win/lose/tie code to updateGame
+ 1. Add win/lose/tie code to `updateGame()`.
  2. Write `checkWin()`. Video only covers 1 of 8 cases. Students are expected to complete method.
 
 ### **Step 4: Deal with state changes in number of players.**
