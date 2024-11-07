@@ -152,5 +152,6 @@ onValue(gameRef, (snapshot) => {
     - detect state changes and take non-final actions: if both players are online update bothPlayersOnline
     - detect state changes and take final actions: both players online and someone disconnects, only one player, gameBoard is null.
       
-### **Step 5: Turn it into a PWA, and launch it on the Firebase Web Servers.**
+### **Step 5: Turn it into a PWA, and Host it Online.**
  1. By now, you should know how to turn a website into a PWA. so go ahead and to it
+ 2. Host is on Glitch, or the Firebase Servers, or at a location of your choice.
