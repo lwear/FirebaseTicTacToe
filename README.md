@@ -6,8 +6,6 @@ If you have any questions, issues, or concerns about the code, please create an 
 
 ## Integrate Firebase with Glitch
 
-
-
 ### Step 1: Set Up a Firebase Project
 
 1. **Go to Firebase Console**: [Visit Firebase Console](https://console.firebase.google.com/).
@@ -159,3 +157,5 @@ onValue(gameRef, (snapshot) => {
  4. Get green on all areas of Lighthouse Test.
  5. Validate HTML and CSS, no JS errors.
 
+### Evaluation
+1. See [Evaluation Rubric] (https://docs.google.com/document/d/1jjdrUIWAZcEaCODYzMZrD5FGWm9X02kN-ZDSrwBGDTc/edit?usp=sharing).
